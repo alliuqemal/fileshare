@@ -30,4 +30,5 @@ Route::middleware('auth')
         Route::post('/profile/edit')
             ->uses('ProfileController@update')
             ->name('profile.update');
+
     });
