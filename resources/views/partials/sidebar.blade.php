@@ -31,7 +31,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="/files/upload" class="nav-link">
                                 <i class="fa fa-upload nav-icon"></i>
                                 <p>Upload File</p>
                             </a>

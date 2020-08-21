@@ -31,4 +31,8 @@ Route::middleware('auth')
             ->uses('ProfileController@update')
             ->name('profile.update');
 
+        Route::get('/files/upload')
+            ->uses('FileController@upload')
+            ->name('files.upload');
+
     });
