@@ -1,5 +1,6 @@
 <?php
 
+use App\Enums\FileTypeEnum;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -17,7 +18,7 @@ class CreateFilesTable extends Migration
             $table->id();
             $table->string('name');
             $table->integer('size');
-            $table->string('type');
+            $table->enum('role', FileTypeEnum::toArray())->default(FileTypeEnum::default());
             $table->bigInteger('userID');
             $table->timestamps();
         });

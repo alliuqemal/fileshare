@@ -14,6 +14,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/files/shared', function () {
+    return view('files.shared');
+});
 Auth::routes();
 
 Route::middleware('auth')
@@ -34,5 +37,9 @@ Route::middleware('auth')
         Route::get('/files/upload')
             ->uses('FileController@upload')
             ->name('files.upload');
+
+        Route::get('/files/all')
+            ->uses('FileController@showAll')
+            ->name('files.all');
 
     });

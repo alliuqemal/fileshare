@@ -1,19 +1,12 @@
 @extends('layouts.application')
-@section('title', 'Dashboard')
+@section('title', 'Upload File')
 @section('content')
-    <div class="card card-primary">
-        <div class="card-header">
-            <h3 class="card-title">Upload File</h3>
+    <form action="/upload" class="dropzone needsclick dz-clickable" id="demo-upload">
+        <div class="dz-message needsclick">
+            <button type="button" class="dz-button">Drop files here or click to upload.</button>
+            <br>
         </div>
-        <form action="/upload" class="dropzone needsclick dz-clickable" id="demo-upload">
-
-            <div class="dz-message needsclick">
-                <button type="button" class="dz-button">Drop files here or click to upload.</button><br>
-
-            </div>
-
-        </form>
-    </div>
+    </form>
 @endsection
 @section('styles')
     <link rel="stylesheet" href="{{ asset('/plugins/dropzonejs/basic.css') }}">
