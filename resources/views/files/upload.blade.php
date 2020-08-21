@@ -5,43 +5,25 @@
         <div class="card-header">
             <h3 class="card-title">Upload File</h3>
         </div>
-        <form role="form">
-            <div class="card-body">
-                <div class="form-group">
-                    <label for="filename">Email address</label>
-                    <input type="email" class="form-control" id="filename" placeholder="Enter email">
-                </div>
-                <div class="form-group">
-                    <label for="exampleInputPassword1">Password</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-                </div>
-                <div class="form-group">
-                    <label for="exampleInputFile">File input</label>
-                    <div class="input-group">
-                        <div class="custom-file">
-                            <input type="file" class="custom-file-input" id="exampleInputFile">
-                            <label class="custom-file-label" for="exampleInputFile">Choose file</label>
-                        </div>
-                        <div class="input-group-append">
-                            <span class="input-group-text" id="">Upload</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="form-check">
-                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                    <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                </div>
+        <form action="/upload" class="dropzone needsclick dz-clickable" id="demo-upload">
+
+            <div class="dz-message needsclick">
+                <button type="button" class="dz-button">Drop files here or click to upload.</button><br>
+
             </div>
 
-            <div class="card-footer">
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </div>
         </form>
     </div>
 @endsection
 @section('styles')
-
+    <link rel="stylesheet" href="{{ asset('/plugins/dropzonejs/basic.css') }}">
+    <link rel="stylesheet" href="{{ asset('/plugins/dropzonejs/dropzone.css') }}">
+    <link rel="stylesheet" href="{{ asset('/plugins/dropzonejs/min/basic.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('/plugins/dropzonejs/min/dropzone.min.css') }}">
 @endsection
 @section('scripts')
-
+    <script src="{{ asset('plugins/dropzonejs/dropzone.js') }}"></script>
+    <script src="{{ asset('plugins/dropzonejs/min/dropzone.min.js') }}"></script>
+    <script src="{{ asset('plugins/dropzonejs/min/dropzone-amd-module.min.js') }}"></script>
+    <script src="{{ asset('plugins/dropzonejs/dropzone-amd-module.js') }}"></script>
 @endsection
