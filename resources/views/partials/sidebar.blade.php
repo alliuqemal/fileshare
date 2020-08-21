@@ -35,13 +35,6 @@
                                 <p>Shared with me</p>
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a href="#"
-                               class="nav-link {{ Request::path() ==='files/trash' ? 'active' : ''}} ">
-                                <i class="fa fa-trash-alt nav-icon  "></i>
-                                <p>Trash</p>
-                            </a>
-                        </li>
                     </ul>
                 </li>
                 <li class="nav-header">EXAMPLES</li>

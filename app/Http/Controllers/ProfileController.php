@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use http\Env\Request;
-
 class ProfileController extends Controller
 {
     public function edit()
@@ -12,10 +10,4 @@ class ProfileController extends Controller
 
         return view('profile.edit', compact('user'));
     }
-
-//    public function update(Request $request)
-//    {
-//        auth()->user()->name = $request -> name;
-//        auth()->user()->email = $request->email;
-//    }
 }
