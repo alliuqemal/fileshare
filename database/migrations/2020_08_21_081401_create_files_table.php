@@ -18,7 +18,7 @@ class CreateFilesTable extends Migration
             $table->id();
             $table->string('name');
             $table->integer('size');
-            $table->enum('role', FileTypeEnum::toArray())->default(FileTypeEnum::default());
+            $table->enum('type', FileTypeEnum::toArray())->default(FileTypeEnum::default());
             $table->bigInteger('userID');
             $table->timestamps();
         });
