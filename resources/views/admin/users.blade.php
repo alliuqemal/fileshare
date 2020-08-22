@@ -51,9 +51,9 @@
 
                                         </a>
                                     @endif
-                                    <a href="#" class="btn btn-tool btn-sm">
-                                        <i class="fas fa-user-times"></i>
-                                    </a>
+                                    <form action="#" class="btn btn-tool btn-sm">
+                                        <i type="submit" class="fas fa-user-times"></i>
+                                    </form>
 
                                     </div>
                             </td>
