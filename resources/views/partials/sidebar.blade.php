@@ -44,6 +44,34 @@
                         </li>
                     </ul>
                 </li>
+
+                @auth
+                @if(auth()->user()->role === 'Administrator')
+{{--                admin panel --}}
+                <li class="nav-item has-treeview">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-users-cog"></i>
+                        <p>
+                            Admin Panel
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="#"
+                               class="nav-link {{ Request::path() ==='admin/manageUsers' ? 'active' : ''}} ">
+                                <i class="fa fa-user-edit nav-icon"></i>
+                                <p>Manage Users</p>
+                            </a>
+                        </li>
+
+                    </ul>
+                </li>
+                {{--                end of admin panel--}}
+                @endif
+                @endauth
+
+
                 <li class="nav-header">EXAMPLES</li>
                 <li class="nav-item">
                     <a href="#" class="nav-link">
