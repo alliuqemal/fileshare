@@ -55,10 +55,7 @@
                                         <i class="fas fa-user-times"></i>
                                     </a>
 
-                                    <a href="#" class="btn btn-tool btn-sm">
-                                        <i class="fas fa-edit"
-                                           alt="Edit File"></i>
-                                    </a></div>
+                                    </div>
                             </td>
                         </tr>
                     @endforeach
