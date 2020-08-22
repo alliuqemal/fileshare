@@ -46,7 +46,7 @@
                 </li>
 
                 @auth
-                @if(auth()->user()->role === 'Administrator')
+                @if(auth()->user()->role == 'Administrator')
 {{--                admin panel --}}
                 <li class="nav-item has-treeview">
                     <a href="#" class="nav-link">
@@ -58,8 +58,8 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="#"
-                               class="nav-link {{ Request::path() ==='admin/manageUsers' ? 'active' : ''}} ">
+                            <a href="admin/users"
+                               class="nav-link {{ Request::path() ==='admin/users' ? 'active' : ''}} ">
                                 <i class="fa fa-user-edit nav-icon"></i>
                                 <p>Manage Users</p>
                             </a>

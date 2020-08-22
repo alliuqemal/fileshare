@@ -41,4 +41,7 @@ Route::middleware('auth')
             ->uses('FileController@showAll')
             ->name('files.all');
 
+        Route::get('/admin/users')
+            ->uses('ProfileController@showAll')
+            ->name('admin.users');
     });

@@ -144,6 +144,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\laragon\www\fileshare\resources\views\admin" />
       <recent name="C:\laragon\www\fileshare\resources\views\profile" />
       <recent name="C:\laragon\www\fileshare\resources\views" />
       <recent name="C:\laragon\www\fileshare\app\Models\User" />
@@ -175,7 +176,7 @@
       <workItem from="1598108463094" duration="46000" />
       <workItem from="1598108518337" duration="3000" />
       <workItem from="1598108705708" duration="622000" />
-      <workItem from="1598110065922" duration="968000" />
+      <workItem from="1598110065922" duration="4757000" />
     </task>
     <servers />
   </component>
@@ -231,9 +232,9 @@
       <screen x="0" y="0" width="1920" height="1048" />
     </state>
     <state x="616" y="242" key="run.anything.popup/0.0.1920.1048@0.0.1920.1048" timestamp="1597930592030" />
-    <state x="143" y="232" width="672" height="678" key="search.everywhere.popup" timestamp="1598110729470">
+    <state x="143" y="232" width="672" height="678" key="search.everywhere.popup" timestamp="1598126835209">
       <screen x="0" y="0" width="1920" height="1048" />
     </state>
-    <state x="143" y="232" width="672" height="678" key="search.everywhere.popup/0.0.1920.1048@0.0.1920.1048" timestamp="1598110729470" />
+    <state x="143" y="232" width="672" height="678" key="search.everywhere.popup/0.0.1920.1048@0.0.1920.1048" timestamp="1598126835209" />
   </component>
 </project>
