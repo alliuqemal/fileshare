@@ -17,10 +17,11 @@ class CreateFilesTable extends Migration
         Schema::create('files', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->integer('size');
+            $table -> string('path')->nullable();
+            $table->bigInteger('size');
             $table->enum('type', FileTypeEnum::toArray())->default(FileTypeEnum::default());
             $table->bigInteger('userID');
-            $table->boolean('trash');
+            $table->boolean('trash')->default(false);
             $table->timestamps();
         });
     }

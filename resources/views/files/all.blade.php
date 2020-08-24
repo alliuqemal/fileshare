@@ -23,21 +23,23 @@
                 </tr>
                 </thead>
                 <tbody>
-{{--                @foreach--}}
+                @foreach(\App\Models\File\File::all() as $file)
                 <tr>
                     <td>
-
-                    </td>
-                    <td></td>
-                    <td>
-
-
+                        <i class="fa {{$file->fileIcon($file->type)}}"></i>
+                        {{$file->name}}
                     </td>
                     <td>
-
+                        {{$file->size}}
+                    </td>
+                    <td>
+                        {{$file->created_at}}
+                    </td>
+                    <td>
+{{--                        <a href="{{Storage::get($file)}}"></a>--}}
                     </td>
                 </tr>
-{{--                @endforeach--}}
+                @endforeach
                 </tbody>
             </table>
         </div>
