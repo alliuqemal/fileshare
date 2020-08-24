@@ -1,5 +1,6 @@
 <?php
 
+use App\Enums\RoleEnum;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -13,9 +14,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/files/shared', function () {
-    return view('files.shared');
-});
+
 Auth::routes();
 
 Route::middleware('auth')
@@ -41,7 +40,27 @@ Route::middleware('auth')
             ->uses('FileController@showAll')
             ->name('files.all');
 
-        Route::get('/admin/users')
-            ->uses('ProfileController@showAll')
-            ->name('admin.users');
+        Route::get('/files/shared')
+            ->uses('FileController@showShared')
+            ->name('files.all');
+
+        Route::get('/files/trash')
+            ->uses('FileController@showTrash')
+            ->name('files.trash');
+
+
+        Route::prefix('admin')
+            ->middleware('role:'. RoleEnum::ADMINISTRATOR)
+            ->as('admin.')
+            ->group(function () {
+
+                Route::get('/users')
+                    ->uses('UsersController@index')
+                    ->name('users.index');
+
+                Route::delete('/users/{user}')
+                    ->uses('UsersController@destroy')
+                    ->name('users.delete');
+            });
+
     });

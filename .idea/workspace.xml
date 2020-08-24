@@ -144,11 +144,11 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\laragon\www\fileshare\app\Repository\Contracts" />
+      <recent name="C:\laragon\www\fileshare\resources\views\admin\users" />
       <recent name="C:\laragon\www\fileshare\resources\views\admin" />
       <recent name="C:\laragon\www\fileshare\resources\views\profile" />
       <recent name="C:\laragon\www\fileshare\resources\views" />
-      <recent name="C:\laragon\www\fileshare\app\Models\User" />
-      <recent name="C:\laragon\www\fileshare\app\Models" />
     </key>
   </component>
   <component name="RunManager">
@@ -176,12 +176,19 @@
       <workItem from="1598108463094" duration="46000" />
       <workItem from="1598108518337" duration="3000" />
       <workItem from="1598108705708" duration="622000" />
-      <workItem from="1598110065922" duration="4851000" />
+      <workItem from="1598110065922" duration="5067000" />
+      <workItem from="1598128601451" duration="1844000" />
+      <workItem from="1598253365087" duration="5964000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/fileshare" />
+    </ignored-roots>
   </component>
   <component name="WindowStateProjectService">
     <state x="1195" y="347" key="#Notifications" timestamp="1597941029375">
@@ -204,18 +211,18 @@
       <screen x="0" y="0" width="1920" height="1048" />
     </state>
     <state x="260" y="282" key="FileChooserDialogImpl/0.0.1920.1048@0.0.1920.1048" timestamp="1598108717083" />
-    <state x="290" y="234" key="NewPhpClassDialog" timestamp="1597932248612">
+    <state x="290" y="234" key="NewPhpClassDialog" timestamp="1598258601613">
       <screen x="0" y="0" width="1920" height="1048" />
     </state>
-    <state x="290" y="234" key="NewPhpClassDialog/0.0.1920.1048@0.0.1920.1048" timestamp="1597932248612" />
+    <state x="290" y="234" key="NewPhpClassDialog/0.0.1920.1048@0.0.1920.1048" timestamp="1598258601613" />
     <state x="794" y="443" key="NewPhpFileDialog" timestamp="1598110920992">
       <screen x="0" y="0" width="1920" height="1048" />
     </state>
     <state x="794" y="443" key="NewPhpFileDialog/0.0.1920.1048@0.0.1920.1048" timestamp="1598110920992" />
-    <state x="0" y="172" key="SettingsEditor" timestamp="1598096397919">
+    <state x="0" y="172" key="SettingsEditor" timestamp="1598130699938">
       <screen x="0" y="0" width="1920" height="1048" />
     </state>
-    <state x="0" y="172" key="SettingsEditor/0.0.1920.1048@0.0.1920.1048" timestamp="1598096397919" />
+    <state x="0" y="172" key="SettingsEditor/0.0.1920.1048@0.0.1920.1048" timestamp="1598130699938" />
     <state x="297" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1597927385633">
       <screen x="0" y="0" width="1920" height="1048" />
     </state>
@@ -232,9 +239,9 @@
       <screen x="0" y="0" width="1920" height="1048" />
     </state>
     <state x="616" y="242" key="run.anything.popup/0.0.1920.1048@0.0.1920.1048" timestamp="1597930592030" />
-    <state x="143" y="232" width="672" height="678" key="search.everywhere.popup" timestamp="1598126835209">
+    <state x="143" y="232" width="672" height="678" key="search.everywhere.popup" timestamp="1598258884728">
       <screen x="0" y="0" width="1920" height="1048" />
     </state>
-    <state x="143" y="232" width="672" height="678" key="search.everywhere.popup/0.0.1920.1048@0.0.1920.1048" timestamp="1598126835209" />
+    <state x="143" y="232" width="672" height="678" key="search.everywhere.popup/0.0.1920.1048@0.0.1920.1048" timestamp="1598258884728" />
   </component>
 </project>

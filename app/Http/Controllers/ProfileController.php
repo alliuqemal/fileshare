@@ -10,9 +10,4 @@ class ProfileController extends Controller
 
         return view('profile.edit', compact('user'));
     }
-
-    public function showAll()
-    {
-        return view('admin.users');
-    }
 }

@@ -1,0 +1,46 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Repository\Contracts\UserRepositoryInterface;
+use Exception;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\View\View;
+
+class UsersController extends Controller
+{
+    private $userRepository;
+
+    /**
+     * @param UserRepositoryInterface $userRepository
+     */
+    public function __construct(UserRepositoryInterface $userRepository)
+    {
+        $this->userRepository = $userRepository;
+    }
+
+    /**
+     * @return Factory|View
+     */
+    public function index()
+    {
+        $users = $this->userRepository->query()->paginate();
+
+        return view('admin.users.index', compact('users'));
+    }
+
+    /**
+     * @param int $id
+     * @return RedirectResponse
+     * @throws Exception
+     */
+    public function destroy(int $id)
+    {
+        $user = $this->userRepository->findOrFail($id);
+
+        $user->delete();
+
+        return redirect()->back();
+    }
+}

@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
 class FileController extends Controller
 {
     public function upload()
@@ -15,10 +13,21 @@ class FileController extends Controller
 
     public function showAll()
     {
-
-//        $request->file()->getClientOriginalExtension();
-        $owner = auth()->user()->id;
+        $owner = auth()->user();
 
         return view('files.all', compact('owner'));
+    }
+
+    public function showTrash()
+    {
+        $owner = auth()->user();
+        return view('files.trash', compact('owner'));
+    }
+
+    public function showShared()
+    {
+        $owner = auth()->user();
+
+        return view('files.shared', compact('owner'));
     }
 }

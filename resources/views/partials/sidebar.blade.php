@@ -58,7 +58,7 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="admin/users"
+                            <a href="/admin/users"
                                class="nav-link {{ Request::path() ==='admin/users' ? 'active' : ''}} ">
                                 <i class="fa fa-user-edit nav-icon"></i>
                                 <p>Manage Users</p>
