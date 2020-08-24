@@ -23,6 +23,7 @@
                 </tr>
                 </thead>
                 <tbody>
+{{--                @foreach--}}
                 <tr>
                     <td>
 
@@ -36,6 +37,7 @@
 
                     </td>
                 </tr>
+{{--                @endforeach--}}
                 </tbody>
             </table>
         </div>

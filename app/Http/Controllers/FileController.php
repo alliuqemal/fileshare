@@ -25,6 +25,11 @@ class FileController extends Controller
         return view('files.upload', compact('user'));
     }
 
+    public function Gallery()
+    {
+        return view('files.gallery');
+    }
+
     public function uploadPost(Request $request)
     {
         $file = $request->file('file');

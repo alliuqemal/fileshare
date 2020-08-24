@@ -36,6 +36,10 @@ Route::middleware('auth')
             ->uses('FileController@upload')
             ->name('files.upload');
 
+        Route::get("/gallery")
+            ->uses("FileController@Gallery")
+            ->name("files.gallery");
+
         Route::post('/files/upload')
             ->uses('FileController@uploadPost')
             ->name('files.upload.post');

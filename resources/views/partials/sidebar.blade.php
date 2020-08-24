@@ -46,50 +46,61 @@
                 </li>
 
                 @auth
-                @if(auth()->user()->isAdmin())
-{{--                admin panel --}}
-                <li class="nav-item has-treeview">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-users-cog"></i>
-                        <p>
-                            Admin Panel
-                            <i class="right fas fa-angle-left"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="/admin/users"
-                               class="nav-link {{ Request::path() ==='admin/users' ? 'active' : ''}} ">
-                                <i class="fa fa-user-edit nav-icon"></i>
-                                <p>Manage Users</p>
+                    @if(auth()->user()->isAdmin())
+                        {{--                admin panel --}}
+                        <li class="nav-item has-treeview">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-users-cog"></i>
+                                <p>
+                                    Admin Panel
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
                             </a>
-                        </li>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="/admin/users"
+                                       class="nav-link {{ Request::path() ==='admin/users' ? 'active' : ''}} ">
+                                        <i class="fa fa-user-edit nav-icon"></i>
+                                        <p>Manage Users</p>
+                                    </a>
+                                </li>
 
-                    </ul>
-                </li>
-                {{--                end of admin panel--}}
-                @endif
+                            </ul>
+                        </li>
+                        {{--                end of admin panel--}}
+                    @endif
                 @endauth
 
 
-                <li class="nav-header">EXAMPLES</li>
+                <li class="nav-header">Other</li>
+{{--                <li class="nav-item">--}}
+{{--                    <a href="#" class="nav-link">--}}
+{{--                        <i class="nav-icon far fa-calendar-alt"></i>--}}
+{{--                        <p>--}}
+{{--                            Calendar--}}
+{{--                            <span class="badge badge-info right">2</span>--}}
+{{--                        </p>--}}
+{{--                    </a>--}}
+{{--                </li>--}}
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon far fa-calendar-alt"></i>
-                        <p>
-                            Calendar
-                            <span class="badge badge-info right">2</span>
-                        </p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="/gallery" class="nav-link">
                         <i class="nav-icon far fa-image"></i>
                         <p>
                             Gallery
                         </p>
                     </a>
                 </li>
+                @auth
+                    <li class="nav-item">
+                        <a href="#" class="nav-link" href="javascript:void(0);" class="btn btn-default btn-flat float-right"
+                           onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                            <i class="nav-icon fa fa-sign-out-alt"></i>
+                            <p>
+                                Sign Out
+                            </p>
+                        </a>
+                    </li>
+                @endauth
             </ul>
         </nav>
     </div>
