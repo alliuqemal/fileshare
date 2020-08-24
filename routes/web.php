@@ -58,6 +58,14 @@ Route::middleware('auth')
                     ->uses('UsersController@index')
                     ->name('users.index');
 
+                Route:: post ('/users/{user}')
+                    ->uses('UsersController@promote')
+                    -> name ('users.promote');
+
+//                Route::post('/users/{user}')
+//                    ->uses('UsersController@demote')
+//                    ->name('users.demote');
+
                 Route::delete('/users/{user}')
                     ->uses('UsersController@destroy')
                     ->name('users.delete');

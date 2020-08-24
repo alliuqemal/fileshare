@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Enums\RoleEnum;
 use App\Repository\Contracts\UserRepositoryInterface;
 use Exception;
 use Illuminate\Contracts\View\Factory;
@@ -40,6 +41,22 @@ class UsersController extends Controller
         $user = $this->userRepository->findOrFail($id);
 
         $user->delete();
+
+        return redirect()->back();
+    }
+
+    public function promote(int $id)
+    {
+        $user = $this->userRepository->findOrFail($id);
+        $user->update(['role' => RoleEnum::ADMINISTRATOR]);
+
+        return redirect()->back();
+    }
+
+    public function demote(int $id)
+    {
+        $user = $this -> userRepository -> findOrFail($id);
+        $user ->update(['role' => RoleEnum::USER]);
 
         return redirect()->back();
     }
