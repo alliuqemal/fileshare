@@ -46,7 +46,7 @@
                 </li>
 
                 @auth
-                @if(auth()->user()->role == 'Administrator')
+                @if(auth()->user()->isAdmin())
 {{--                admin panel --}}
                 <li class="nav-item has-treeview">
                     <a href="#" class="nav-link">

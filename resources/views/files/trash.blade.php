@@ -42,12 +42,3 @@
         </div>
     </div>
 @endsection
-
-@section('styles')
-
-
-@endsection
-
-@section('scripts')
-
-@endsection

@@ -1,10 +1,10 @@
 @extends('layouts.application')
 @section('title', 'Upload File')
 @section('content')
-    <form action="/upload" class="dropzone needsclick dz-clickable" id="demo-upload">
+    <form action="{{ route('files.upload.post') }}" class="dropzone needsclick dz-clickable" id="demo-upload">
+        @csrf
         <div class="dz-message needsclick">
-            <button type="button" class="dz-button">Drop files here or click to upload.</button>
-            <br>
+            <button type="button" class="dz-button">Drop files here or click to upload.</button><br>
         </div>
     </form>
 @endsection

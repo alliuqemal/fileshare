@@ -36,6 +36,10 @@ Route::middleware('auth')
             ->uses('FileController@upload')
             ->name('files.upload');
 
+        Route::post('/files/upload')
+            ->uses('FileController@uploadPost')
+            ->name('files.upload.post');
+
         Route::get('/files/all')
             ->uses('FileController@showAll')
             ->name('files.all');
@@ -58,13 +62,13 @@ Route::middleware('auth')
                     ->uses('UsersController@index')
                     ->name('users.index');
 
-                Route:: post ('/users/{user}')
+                Route:: post ('/users/promote/{user}')
                     ->uses('UsersController@promote')
-                    -> name ('users.promote');
+                    ->name ('users.promote');
 
-//                Route::post('/users/{user}')
-//                    ->uses('UsersController@demote')
-//                    ->name('users.demote');
+                Route::post('/users/demote/{user}')
+                    ->uses('UsersController@demote')
+                    ->name('users.demote');
 
                 Route::delete('/users/{user}')
                     ->uses('UsersController@destroy')
