@@ -56,6 +56,10 @@ Route::middleware('auth')
             ->uses('FileController@showTrash')
             ->name('files.trash');
 
+        Route::post('/files/sendFile/{fileid}')
+            ->uses('FileController@sendFile')
+            ->name('files.sendFile');
+
 
         Route::prefix('admin')
             ->middleware('role:'. RoleEnum::ADMINISTRATOR)

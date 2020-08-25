@@ -27,7 +27,7 @@ class UsersController extends Controller
      */
     public function index()
     {
-        $users = $this->userRepository->query()->paginate();
+        $users = $this->userRepository->all();
 
         return view('admin.users.index', compact('users'));
     }
@@ -39,9 +39,8 @@ class UsersController extends Controller
      */
     public function destroy(int $id)
     {
-        $user = $this->userRepository->findOrFail($id);
-
-        $user->delete();
+        $this->userRepository->findOrFail($id);
+        $this->userRepository->destroy($id);
 
         return redirect()->back();
     }
