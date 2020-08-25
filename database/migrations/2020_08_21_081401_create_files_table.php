@@ -21,7 +21,7 @@ class CreateFilesTable extends Migration
             $table->bigInteger('size');
             $table->enum('type', FileTypeEnum::toArray())->default(FileTypeEnum::default());
             $table->bigInteger('userID');
-            $table->boolean('trash')->default(false);
+            $table->softDeletes()->nullable();
             $table->timestamps();
         });
     }

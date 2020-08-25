@@ -23,10 +23,10 @@
                 </tr>
                 </thead>
                 <tbody>
-                @foreach(\App\Models\File\File::all() as $file)
+                @foreach($files as $file)
                 <tr>
                     <td>
-                        <i class="fa {{$file->fileIcon($file->type)}}"></i>
+                        <i class="fa {{ getFileIcon($file->type) }}"></i>
                         {{$file->name}}
                     </td>
                     <td>
