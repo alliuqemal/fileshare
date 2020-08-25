@@ -181,6 +181,8 @@ return [
          */
         App\Providers\RepositoryServiceProvider::class,
         App\Providers\InstanceServiceProvider::class,
+        Yajra\DataTables\DataTablesServiceProvider::class,
+
 
     ],
 
@@ -233,6 +235,7 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+        'DataTables' => Yajra\DataTables\Facades\DataTables::class,
 
     ],
 

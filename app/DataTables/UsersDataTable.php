@@ -2,12 +2,9 @@
 
 namespace App\DataTables;
 
-use App\Http\Controllers\UsersController;
 use App\Models\User\User;
 use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Html\Column;
-use Yajra\DataTables\Html\Editor\Editor;
-use Yajra\DataTables\Html\Editor\Fields;
 use Yajra\DataTables\Services\DataTable;
 
 class UsersDataTable extends DataTable
@@ -29,6 +26,12 @@ class UsersDataTable extends DataTable
             ->eloquent($query)
             ->addColumn('action', 'users.action');
     }
+    public function query()
+    {
+        $users = User::all();
+
+        return $this->applyScopes($users);
+    }
 
     /**
      * Optional method if you want to use html builder.
@@ -38,7 +41,7 @@ class UsersDataTable extends DataTable
     public function html()
     {
         return $this->builder()
-                    ->setTableId('users-table')
+                    ->setTableId('users')
                     ->columns($this->getColumns())
                     ->minifiedAjax()
                     ->dom('Bfrtip')
@@ -51,7 +54,20 @@ class UsersDataTable extends DataTable
                         Button::make('reload')
                     );
     }
-
+//    public function html()
+//    {
+//        return $this->builder()
+//            ->columns([
+//                'id',
+//                'name',
+//                'email',
+//                'role'
+//            ])
+//            ->parameters([
+//                'dom' => 'Bfrtip',
+//                'buttons' => ['csv', 'excel', 'pdf', 'print', 'reset', 'reload'],
+//            ]);
+//    }
     public function ajax()
     {
         return $this->datatables
