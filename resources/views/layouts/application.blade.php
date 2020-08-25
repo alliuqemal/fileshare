@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('title') | {{ config('app.name') }}</title>
+    <link href="{{ asset('/plugins/toastr/toastr.min.css') }}" rel="stylesheet"/>
     <link rel="stylesheet" href="{{ asset('/plugins/fontawesome-free/css/all.min.css') }}">
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <link rel="stylesheet" href="{{ asset('/dist/css/adminlte.min.css') }}">
@@ -36,6 +37,7 @@
 <script src="{{ asset('plugins/jquery/jquery.min.js') }}"></script>
 <script src="{{ asset('plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 <script src="{{ asset('dist/js/adminlte.min.js') }}"></script>
+<script src="{{ asset('/plugins/toastr/toastr.min.js') }}"></script>
 <script>
     $.ajaxSetup({
         headers: {
@@ -43,6 +45,9 @@
         }
     });
 </script>
+<script src="{{ mix('js/app.js') }}"></script>
+<script src="{{ asset('vendor/datatables/buttons.server-side.js') }}"></script>
+
 @yield('scripts')
 </body>
 </html>
