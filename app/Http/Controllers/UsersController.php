@@ -24,6 +24,7 @@ class UsersController extends Controller
     }
 
     /**
+     * @param UsersDataTable $dataTable
      * @return Factory|View
      */
     public function index(UsersDataTable $dataTable)

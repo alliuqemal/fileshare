@@ -3,6 +3,8 @@
 namespace App\DataTables;
 
 use App\Models\User\User;
+use Illuminate\Database\Eloquent\Builder;
+use Yajra\DataTables\DataTableAbstract;
 use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Html\Column;
 use Yajra\DataTables\Services\DataTable;
@@ -10,15 +12,10 @@ use Yajra\DataTables\Services\DataTable;
 class UsersDataTable extends DataTable
 {
     /**
-     * @var mixed|null
-     */
-    private $datatables;
-
-    /**
      * Build DataTable class.
      *
      * @param mixed $query Results from query() method.
-     * @return \Yajra\DataTables\DataTableAbstract
+     * @return DataTableAbstract
      */
     public function dataTable($query)
     {
@@ -26,11 +23,16 @@ class UsersDataTable extends DataTable
             ->eloquent($query)
             ->addColumn('action', 'users.action');
     }
-    public function query()
-    {
-        $users = User::all();
 
-        return $this->applyScopes($users);
+    /**
+     * Get query source of dataTable.
+     *
+     * @param User $model
+     * @return Builder
+     */
+    public function query(User $model)
+    {
+        return $model->newQuery();
     }
 
     /**
@@ -41,38 +43,18 @@ class UsersDataTable extends DataTable
     public function html()
     {
         return $this->builder()
-                    ->setTableId('users')
-                    ->columns($this->getColumns())
-                    ->minifiedAjax()
-                    ->dom('Bfrtip')
-                    ->orderBy(1)
-                    ->buttons(
-                        Button::make('create'),
-                        Button::make('export'),
-                        Button::make('print'),
-                        Button::make('reset'),
-                        Button::make('reload')
-                    );
-    }
-//    public function html()
-//    {
-//        return $this->builder()
-//            ->columns([
-//                'id',
-//                'name',
-//                'email',
-//                'role'
-//            ])
-//            ->parameters([
-//                'dom' => 'Bfrtip',
-//                'buttons' => ['csv', 'excel', 'pdf', 'print', 'reset', 'reload'],
-//            ]);
-//    }
-    public function ajax()
-    {
-        return $this->datatables
-            ->eloquent($this->query())
-            ->make(true);
+            ->setTableId('users')
+            ->columns($this->getColumns())
+            ->minifiedAjax()
+            ->dom('Bfrtip')
+            ->orderBy(1)
+            ->buttons(
+                Button::make('create'),
+                Button::make('export'),
+                Button::make('print'),
+                Button::make('reset'),
+                Button::make('reload')
+            );
     }
 
     /**
@@ -87,6 +69,11 @@ class UsersDataTable extends DataTable
             Column::make('name'),
             Column::make('email'),
             Column::make('role'),
+            Column::computed('action')
+                ->exportable(false)
+                ->printable(false)
+                ->width(60)
+                ->addClass('text-center'),
         ];
     }
 
