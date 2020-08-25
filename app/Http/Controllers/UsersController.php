@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\DataTables\UsersDataTable;
 use App\Enums\RoleEnum;
 use App\Models\User\User;
 use App\Repository\Contracts\UserRepositoryInterface;
@@ -26,11 +25,12 @@ class UsersController extends Controller
     /**
      * @return Factory|View
      */
-    public function index(UsersDataTable $dataTable)
+    public function index()
     {
+        $users = $this->userRepository->all();
 
-        return $dataTable -> render('admin.users.index');
-   }
+        return view('admin.users.index', compact('users'));
+    }
 
     /**
      * @param int $id
