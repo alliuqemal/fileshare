@@ -18,7 +18,7 @@ class CreateUsersTable extends Migration
             $table->id();
             $table->enum('role', RoleEnum::toArray())->default(RoleEnum::default());
             $table->string('name');
-            $table->string('email')->unique();
+            $table->string('email')->unique()->index();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();

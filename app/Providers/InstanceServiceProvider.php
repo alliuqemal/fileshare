@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Repository\Classes\FileRepository;
+use App\Services\FileService;
 use Illuminate\Support\ServiceProvider;
 use Exception;
 
@@ -25,10 +27,10 @@ class InstanceServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-//        $this->app->instance(ProductService::class,
-//            new ProductService(
-//                new ProductRepository($this->app)
-//            )
-//        );
+        $this->app->instance(FileService::class,
+            new FileService(
+                new FileRepository($this->app)
+            )
+        );
     }
 }

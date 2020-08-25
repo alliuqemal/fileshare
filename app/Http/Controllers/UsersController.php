@@ -8,8 +8,10 @@ use App\Models\User\User;
 use App\Repository\Contracts\UserRepositoryInterface;
 use Exception;
 use Illuminate\Contracts\View\Factory;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
+use Yajra\DataTables\Facades\DataTables;
 
 class UsersController extends Controller
 {
@@ -24,13 +26,21 @@ class UsersController extends Controller
     }
 
     /**
-     * @param UsersDataTable $dataTable
-     * @return Factory|View
+     * @return Factory|JsonResponse|View
+     * @throws Exception
      */
-    public function index(UsersDataTable $dataTable)
+    public function index()
     {
-        $users = $this->userRepository->all();
-        return $dataTable->render('admin.users.index',compact('users'));
+        if (request()->ajax() || request()->wantsJson()) {
+            $users = $this->userRepository->query();
+
+            return DataTables::eloquent($users)
+                ->addColumn('actions', 'admin.users.actions')
+                ->rawColumns(['actions'])
+                ->make(true);
+        }
+
+        return view('admin.users.index');
     }
 
     /**

@@ -34,31 +34,9 @@ class FileController extends Controller
 
     public function uploadPost(Request $request)
     {
-        $file = $request->file('file');
-        $userId = auth()->id();
-        try {
-            $fileName = Str::slug(pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME)) . '-' . time() . '.' . $file->getClientOriginalExtension();
-            $path = $userId . "/" . $fileName;
+        FileService::upload($request->file('file'), auth()->id());
 
-            $stored = Storage::disk('private')->put($path, FileFacade::get($file));
-
-            if ($stored) {
-                return $this -> fileRepository->create([
-                    'name' => $file->getClientOriginalName(),
-                    'type' => getFileType($file->getClientOriginalExtension()),
-                    'size' => $file->getSize(),
-                    'path' => $path,
-                    'userID' => $userId
-                ]);
-            }
-
-            return null;
-        } catch (Exception $exception){
-            return null;
-        }
-//        FileService::upload($request->file('file'), auth()->id());
-//
-//        return response()->json(null, Response::HTTP_NO_CONTENT);
+        return response()->json(null, Response::HTTP_NO_CONTENT);
     }
 
     public function showAll()

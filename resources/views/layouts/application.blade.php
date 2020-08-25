@@ -31,7 +31,7 @@
             @yield('content')
         </section>
     </div>
-    @include('partials.footer')
+
     @include('partials.logoutForm')
 </div>
 <script src="{{ asset('plugins/jquery/jquery.min.js') }}"></script>
@@ -50,4 +50,7 @@
 
 @yield('scripts')
 </body>
+
+@include('partials.footer')
 </html>
+
