@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Repository\Contracts\FileRepositoryInterface;
+use App\Services\FileService;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\File as FileFacade;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
@@ -41,7 +43,7 @@ class FileController extends Controller
             $stored = Storage::disk('private')->put($path, FileFacade::get($file));
 
             if ($stored) {
-                return $this->fileRepository->create([
+                return $this -> fileRepository->create([
                     'name' => $file->getClientOriginalName(),
                     'type' => getFileType($file->getClientOriginalExtension()),
                     'size' => $file->getSize(),
@@ -51,7 +53,7 @@ class FileController extends Controller
             }
 
             return null;
-        } catch (Exception $exception) {
+        } catch (Exception $exception){
             return null;
         }
 //        FileService::upload($request->file('file'), auth()->id());
@@ -61,8 +63,6 @@ class FileController extends Controller
 
     public function showAll()
     {
-
-        //TODO s
         $files = $this->fileRepository->all();
 
         return view('files.all', compact('files'));
@@ -70,16 +70,14 @@ class FileController extends Controller
 
     public function showTrash()
     {
-        return view('files.trash');
+        $user = auth()->user();
+        return view('files.trash', compact('user'));
     }
 
     public function showShared()
     {
-        return view('files.shared');
-    }
+        $user = auth()->user();
 
-    public function sendFile()
-    {
-        return view('files.sendFile');
+        return view('files.shared', compact('user'));
     }
 }

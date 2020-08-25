@@ -12,18 +12,17 @@
             </div>
         </div>
         <div class="card-body table-responsive p-0">
-            <table id="userTable" class="table table-striped table-valign-middle">
-                <thead >
+            <table class="table table-striped table-valign-middle">
+                <thead>
                 <tr>
                     <th>ID</th>
                     <th>Name</th>
                     <th>Email</th>
                     <th>Role</th>
-                    <th>Actions</th>
+                    <th style="float:right">Actions</th>
                 </tr>
                 </thead>
                 <tbody>
-
                 @foreach($users as $user)
                     <tr>
                         <td>
@@ -82,17 +81,6 @@
                 @endforeach
                 </tbody>
             </table>
-
         </div>
     </div>
-@endsection
-@section('scripts')
-    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-    <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            $('#userTable').DataTable();
-        } );
-    </script>
 @endsection

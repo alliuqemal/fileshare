@@ -19,7 +19,7 @@
                     <th>File</th>
                     <th>File Size</th>
                     <th>Upload Date</th>
-                    <th style="float:right">More</th>
+                    <th>More</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -35,28 +35,8 @@
                     <td>
                         {{$file->created_at}}
                     </td>
-                    <td style="float:right">
-                        <form class="d-inline"
-                              action=""
-                              method="POST">
-                            @csrf
-                            <button type="submit" class="btn btn-xs btn-danger"><i
-                                    class="fas fa-trash"></i></button>
-                        </form>
-                        <form class="d-inline"
-                                     action="{{route('files.sendFile',['fileid' => $file -> id])}}"
-                                     method="POST">
-                            @csrf
-                            <button type="submit" class="btn btn-xs btn-success"><i
-                                    class="fas fa-share"></i></button>
-                        </form>
-                        <form class="d-inline"
-                              action=""
-                              method="POST">
-                            @csrf
-                            <button type="submit" class="btn btn-xs btn-info"><i
-                                    class="fas fa-download"></i></button>
-                        </form>
+                    <td>
+{{--                        <a href="{{Storage::get($file)}}"></a>--}}
                     </td>
                 </tr>
                 @endforeach

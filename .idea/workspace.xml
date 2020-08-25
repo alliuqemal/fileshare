@@ -5,19 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="133f5994-af30-443b-b770-621a20a71ba5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/files/sendFile.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/fileshare.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/fileshare.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/FileController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/FileController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UsersController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UsersController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/users/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/users/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/File/File.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/File/File.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/helpers.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/helpers.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_08_21_081401_create_files_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_08_21_081401_create_files_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/files/all.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/files/all.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -135,22 +128,6 @@
       <path value="$PROJECT_DIR$/vendor/sebastian/recursion-context" />
       <path value="$PROJECT_DIR$/vendor/sebastian/resource-operations" />
       <path value="$PROJECT_DIR$/vendor/laravel/ui" />
-      <path value="$PROJECT_DIR$/vendor/maatwebsite/excel" />
-      <path value="$PROJECT_DIR$/vendor/myclabs/php-enum" />
-      <path value="$PROJECT_DIR$/vendor/maennchen/zipstream-php" />
-      <path value="$PROJECT_DIR$/vendor/yajra/laravel-datatables-oracle" />
-      <path value="$PROJECT_DIR$/vendor/yajra/laravel-datatables-html" />
-      <path value="$PROJECT_DIR$/vendor/yajra/laravel-datatables-fractal" />
-      <path value="$PROJECT_DIR$/vendor/yajra/laravel-datatables-editor" />
-      <path value="$PROJECT_DIR$/vendor/yajra/laravel-datatables-buttons" />
-      <path value="$PROJECT_DIR$/vendor/yajra/laravel-datatables" />
-      <path value="$PROJECT_DIR$/vendor/markbaker/matrix" />
-      <path value="$PROJECT_DIR$/vendor/markbaker/complex" />
-      <path value="$PROJECT_DIR$/vendor/psr/http-client" />
-      <path value="$PROJECT_DIR$/vendor/psr/http-factory" />
-      <path value="$PROJECT_DIR$/vendor/phpoffice/phpspreadsheet" />
-      <path value="$PROJECT_DIR$/vendor/laravelcollective/html" />
-      <path value="$PROJECT_DIR$/vendor/league/fractal" />
     </include_path>
   </component>
   <component name="ProjectId" id="1gMYIX8yEUNyBTcJ8qs6fSLP9GG" />
@@ -210,7 +187,7 @@
       <workItem from="1598128601451" duration="1844000" />
       <workItem from="1598253365087" duration="5964000" />
       <workItem from="1598281501829" duration="4170000" />
-      <workItem from="1598339933226" duration="12917000" />
+      <workItem from="1598339933226" duration="5060000" />
     </task>
     <servers />
   </component>
@@ -235,10 +212,6 @@
       <screen x="0" y="0" width="1920" height="1048" />
     </state>
     <state x="414" y="179" width="1092" height="728" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1048@0.0.1920.1048" timestamp="1597937496849" />
-    <state x="208" y="317" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1598345087008">
-      <screen x="0" y="0" width="1920" height="1048" />
-    </state>
-    <state x="208" y="317" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1048@0.0.1920.1048" timestamp="1598345087008" />
     <state x="690" y="271" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1597934250007">
       <screen x="0" y="0" width="1920" height="1048" />
     </state>
@@ -267,10 +240,10 @@
       <screen x="0" y="0" width="1920" height="1048" />
     </state>
     <state x="0" y="172" key="SettingsEditor/0.0.1920.1048@0.0.1920.1048" timestamp="1598130699938" />
-    <state x="297" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1598348780543">
+    <state x="297" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1597927385633">
       <screen x="0" y="0" width="1920" height="1048" />
     </state>
-    <state x="297" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1048@0.0.1920.1048" timestamp="1598348780543" />
+    <state x="297" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1048@0.0.1920.1048" timestamp="1597927385633" />
     <state x="531" y="335" width="1671" height="867" key="dock-window-1" timestamp="1597941227994">
       <screen x="0" y="0" width="1920" height="1048" />
     </state>
@@ -283,9 +256,9 @@
       <screen x="0" y="0" width="1920" height="1048" />
     </state>
     <state x="616" y="242" key="run.anything.popup/0.0.1920.1048@0.0.1920.1048" timestamp="1597930592030" />
-    <state x="143" y="232" width="672" height="678" key="search.everywhere.popup" timestamp="1598352654331">
+    <state x="143" y="232" width="672" height="678" key="search.everywhere.popup" timestamp="1598345031264">
       <screen x="0" y="0" width="1920" height="1048" />
     </state>
-    <state x="143" y="232" width="672" height="678" key="search.everywhere.popup/0.0.1920.1048@0.0.1920.1048" timestamp="1598352654331" />
+    <state x="143" y="232" width="672" height="678" key="search.everywhere.popup/0.0.1920.1048@0.0.1920.1048" timestamp="1598345031264" />
   </component>
 </project>
