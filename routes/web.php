@@ -36,6 +36,18 @@ Route::middleware('auth')
             ->uses('FilesController@upload')
             ->name('files.upload');
 
+        Route::post('/files/restore/{id}')
+            ->uses('FilesController@restore')
+            ->name('files.restore');
+
+        Route::post('/files/trash/{id}')
+            ->uses('FilesController@softDelete')
+            ->name('files.softDelete');
+
+        Route::post('/files/delete/{id}')
+            ->uses('FilesController@permDelete')
+            ->name('files.permDelete');
+
         Route::get("/gallery")
             ->uses("FilesController@Gallery")
             ->name("files.gallery");
@@ -44,9 +56,7 @@ Route::middleware('auth')
             ->uses('FilesController@uploadPost')
             ->name('files.upload.post');
 
-        Route::post('/files/trash/{id}')
-            ->uses('FilesController@softDelete')
-            ->name('files.softDelete');
+
 
         Route::get('/files/')
             ->uses('FilesController@index')
@@ -56,9 +66,9 @@ Route::middleware('auth')
             ->uses('FilesController@showAll')
             ->name('files.all');
 
-        Route::get('/files/shared')
-            ->uses('FilesController@showShared')
-            ->name('files.all');
+        Route::get('/shares/')
+            ->uses('ShareController@index')
+            ->name('shares.index');
 
         Route::get('/files/trash')
             ->uses('FilesController@showTrash')

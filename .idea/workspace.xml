@@ -8,11 +8,12 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/FilesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/FilesController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ShareController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ShareController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/users/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/users/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/files/gallery.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/files/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/files/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/files/upload.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/files/upload.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/partials/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/sidebar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UsersController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UsersController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Services/FileService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/FileService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/files/all.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/files/all.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/files/shared.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/index/shared.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/files/trash.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/files/trash.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,6 +26,12 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="JsFlowSettings">
+    <service-enabled>true</service-enabled>
+    <exe-path />
+    <other-services-enabled>true</other-services-enabled>
+    <auto-save>true</auto-save>
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
@@ -171,11 +178,11 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\laragon\www\fileshare\resources\views\index" />
       <recent name="C:\laragon\www\fileshare\app\Repository\Contracts" />
       <recent name="C:\laragon\www\fileshare\resources\views\admin\users" />
       <recent name="C:\laragon\www\fileshare\resources\views\admin" />
       <recent name="C:\laragon\www\fileshare\resources\views\profile" />
-      <recent name="C:\laragon\www\fileshare\resources\views" />
     </key>
   </component>
   <component name="RunManager">
@@ -210,6 +217,7 @@
       <workItem from="1598339933226" duration="5060000" />
       <workItem from="1598425522771" duration="2161000" />
       <workItem from="1598428270932" duration="1880000" />
+      <workItem from="1598463332502" duration="4338000" />
     </task>
     <servers />
   </component>
@@ -254,10 +262,10 @@
       <screen x="0" y="0" width="1920" height="1048" />
     </state>
     <state x="260" y="282" key="FileChooserDialogImpl/0.0.1920.1048@0.0.1920.1048" timestamp="1598108717083" />
-    <state x="290" y="234" key="NewPhpClassDialog" timestamp="1598444550595">
+    <state x="1183" y="137" key="NewPhpClassDialog" timestamp="1598458751263">
       <screen x="0" y="0" width="1920" height="1048" />
     </state>
-    <state x="290" y="234" key="NewPhpClassDialog/0.0.1920.1048@0.0.1920.1048" timestamp="1598444550595" />
+    <state x="1183" y="137" key="NewPhpClassDialog/0.0.1920.1048@0.0.1920.1048" timestamp="1598458751263" />
     <state x="794" y="443" key="NewPhpFileDialog" timestamp="1598369742462">
       <screen x="0" y="0" width="1920" height="1048" />
     </state>
@@ -270,10 +278,14 @@
       <screen x="0" y="0" width="1920" height="1048" />
     </state>
     <state x="297" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1048@0.0.1920.1048" timestamp="1597927385633" />
-    <state x="531" y="335" width="1671" height="867" key="dock-window-1" timestamp="1597941227994">
+    <state x="282" y="221" width="1378" height="1030" key="dock-window-1" timestamp="1598471413844">
       <screen x="0" y="0" width="1920" height="1048" />
     </state>
-    <state x="531" y="335" width="1671" height="867" key="dock-window-1/0.0.1920.1048@0.0.1920.1048" timestamp="1597941227994" />
+    <state x="282" y="221" width="1378" height="1030" key="dock-window-1/0.0.1920.1048@0.0.1920.1048" timestamp="1598471413844" />
+    <state x="0" y="0" width="1378" height="1030" key="dock-window-2" timestamp="1598471413844">
+      <screen x="0" y="0" width="1920" height="1048" />
+    </state>
+    <state x="0" y="0" width="1378" height="1030" key="dock-window-2/0.0.1920.1048@0.0.1920.1048" timestamp="1598471413844" />
     <state x="188" y="215" width="583" height="624" key="find.popup" timestamp="1597935078660">
       <screen x="0" y="0" width="1920" height="1048" />
     </state>
@@ -282,14 +294,14 @@
       <screen x="0" y="0" width="1920" height="1048" />
     </state>
     <state x="1160" y="295" key="refactoring.ChangeSignatureDialog/0.0.1920.1048@0.0.1920.1048" timestamp="1598365608776" />
-    <state x="616" y="242" key="run.anything.popup" timestamp="1597930592030">
+    <state x="616" y="242" key="run.anything.popup" timestamp="1598459249928">
       <screen x="0" y="0" width="1920" height="1048" />
     </state>
-    <state x="616" y="242" key="run.anything.popup/0.0.1920.1048@0.0.1920.1048" timestamp="1597930592030" />
-    <state x="143" y="232" width="672" height="678" key="search.everywhere.popup" timestamp="1598457441090">
+    <state x="616" y="242" key="run.anything.popup/0.0.1920.1048@0.0.1920.1048" timestamp="1598459249928" />
+    <state x="143" y="232" width="672" height="678" key="search.everywhere.popup" timestamp="1598474806819">
       <screen x="0" y="0" width="1920" height="1048" />
     </state>
-    <state x="143" y="232" width="672" height="678" key="search.everywhere.popup/0.0.1920.1048@0.0.1920.1048" timestamp="1598457441090" />
+    <state x="143" y="232" width="672" height="678" key="search.everywhere.popup/0.0.1920.1048@0.0.1920.1048" timestamp="1598474806819" />
     <state x="682" y="429" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1598433130977">
       <screen x="0" y="0" width="1920" height="1048" />
     </state>

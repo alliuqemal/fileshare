@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\File\File;
 use App\Repository\Contracts\FileRepositoryInterface;
 use App\Services\FileService;
 use Exception;
@@ -62,14 +63,14 @@ class FilesController extends Controller
 
     public function showAll()
     {
-        $files = $this->fileRepository->whereUserId(auth()->id())->get();
+        $files = $this->fileRepository->whereUserId(auth()->id())->paginate();
 
         return view('files.all', compact('files'));
     }
 
     public function showTrash()
     {
-        $files = $this->fileRepository->whereDeleted(auth()->id())->get();
+        $files = $this->fileRepository->whereDeleted(auth()->id())->paginate();
         return view('files.trash', compact('files'));
     }
 
@@ -83,11 +84,30 @@ class FilesController extends Controller
         $file = $this->fileRepository->findOrFail($id);
         try {
             $file->delete();
-            $file->save();
-            return back();
+            $notification = array(
+                'message' => 'Item moved to trash',
+                'alert-type' => 'warning'
+            );
+            return back()->with($notification);
         } catch (Exception $e) {
         }
 
+    }
+
+    public function restore(int $id)
+    {
+        FileService::restore($id);
+        $notification = array(
+            'message' => 'Item restored',
+            'alert-type' => 'success'
+        );
+        return back()->with($notification);
+    }
+
+    public function permDelete(int $id)
+    {
+        FileService::permDelete($id);
+        return back();
     }
 
     public function showShared()

@@ -26,21 +26,58 @@
                 @foreach($files as $file)
                     <tr>
                         <td>
+                            <i class="fa {{ getFileIcon($file->type) }}"></i>
                             {{$file->name}}
                         </td>
-
-                        <td></td>
                         <td>
-
-
+                            {{$file->size_in_mb}}
                         </td>
                         <td>
-
+                            {{optional($file->created_at)->diffForHumans()}}
                         </td>
-
-                    </tr>@endforeach
+                        <td>
+                            <form class="d-inline"
+                                  action="{{ route('files.restore', ['id' => $file-> id]) }}"
+                                  method="POST">
+                                @csrf
+                                <button type="submit" class="btn btn-xs btn-info"><i
+                                        class="fas fa-trash-restore"></i></button>
+                            </form>
+                            <form class="d-inline"
+                                  action="{{ route('files.permDelete', ['id' => $file-> id]) }}"
+                                  method="POST">
+                                @csrf
+                                <button type="submit" class="btn btn-xs btn-danger"><i
+                                        class="fas fa-trash-alt"></i></button>
+                            </form>
+                        </td>
+                    </tr>
+                @endforeach
                 </tbody>
             </table>
         </div>
     </div>
+    {{$files->links()}}
+@endsection
+@section('scripts')
+    <script>
+        @if(Session::has('message'))
+        var type="{{Session::get('alert-type','info')}}"
+
+        switch(type){
+            case 'info':
+                toastr.info("{{ Session::get('message') }}");
+                break;
+            case 'success':
+                toastr.success("{{ Session::get('message') }}");
+                break;
+            case 'warning':
+                toastr.warning("{{ Session::get('message') }}");
+                break;
+            case 'error':
+                toastr.error("{{ Session::get('message') }}");
+                break;
+        }
+        @endif
+    </script>
 @endsection

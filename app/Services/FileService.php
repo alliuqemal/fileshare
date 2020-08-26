@@ -35,6 +35,18 @@ class FileService
         }
     }
 
+    public static function restore(int $id)
+    {
+        return File::withTrashed() -> find($id) -> restore();
+    }
+
+    public static function permDelete(int $id)
+    {
+        $file = File::onlyTrashed()->find($id);
+        Storage::disk('private')->delete($file->path);
+        return $file->forceDelete();
+    }
+
     public static function upload(UploadedFile $file, int $userId)
     {
         try {

@@ -56,7 +56,7 @@ class UsersController extends Controller
         $user->delete();
         $notification = array(
             'message' => 'User deleted',
-            'alert-type' => 'warning'
+            'alert-type' => 'error'
         );
 
         return back()->with($notification);

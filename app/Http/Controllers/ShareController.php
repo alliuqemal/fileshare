@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 
+use App\Share;
+
 class ShareController extends Controller
 {
 //    private $shareRepository;
@@ -12,6 +14,7 @@ class ShareController extends Controller
 //        $this->shareRepository = $shareRepository;
 //    }
 
+
     public function store()
     {
         dd(request());
@@ -20,5 +23,12 @@ class ShareController extends Controller
 //            'fileId' => $request->id,0
 //            'userId' => 0
 //        ]);
+    }
+
+    public function index()
+    {
+        $shared = Share::all()->where('userId',auth()->id());
+
+        return view('shares',compact($shared));
     }
 }
