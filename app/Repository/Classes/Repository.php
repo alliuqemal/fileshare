@@ -3,6 +3,7 @@
 namespace App\Repository\Classes;
 
 use App\Repository\Contracts\RepositoryInterface;
+use Exception;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Contracts\Support\Arrayable;
@@ -12,19 +13,17 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Support\Collection as CollectionSupport;
 use InvalidArgumentException;
-use Exception;
 
 abstract class Repository implements RepositoryInterface
 {
     /**
-     * @var Application
-     */
-    private $app;
-
-    /**
      * @var Model|Builder
      */
     protected $model;
+    /**
+     * @var Application
+     */
+    private $app;
 
     /**
      * @param Application $app
@@ -37,11 +36,6 @@ abstract class Repository implements RepositoryInterface
     }
 
     /**
-     * @return Model|Builder
-     */
-    abstract protected function model();
-
-    /**
      * @return void
      * @throws Exception
      */
@@ -49,12 +43,17 @@ abstract class Repository implements RepositoryInterface
     {
         $model = $this->app->make($this->model());
 
-        if (!$model instanceof Model){
+        if (!$model instanceof Model) {
             throw new Exception("Class {$this->model()} must be an instance of Illuminate\\Database\\Eloquent\\Model");
         }
 
         $this->model = $model;
     }
+
+    /**
+     * @return Model|Builder
+     */
+    abstract protected function model();
 
     /**
      * Begin querying the model.
@@ -94,10 +93,10 @@ abstract class Repository implements RepositoryInterface
     /**
      * Paginate the given query.
      *
-     * @param  int|null  $perPage
-     * @param  array  $columns
-     * @param  string  $pageName
-     * @param  int|null  $page
+     * @param int|null $perPage
+     * @param array $columns
+     * @param string $pageName
+     * @param int|null $page
      * @return LengthAwarePaginator
      *
      * @throws InvalidArgumentException
@@ -171,8 +170,8 @@ abstract class Repository implements RepositoryInterface
     /**
      * Find a model by its primary key.
      *
-     * @param  mixed  $id
-     * @param  array  $columns
+     * @param mixed $id
+     * @param array $columns
      * @return Model|Collection|static[]|static|null
      */
     public function find($id, array $columns = ['*'])
@@ -236,15 +235,6 @@ abstract class Repository implements RepositoryInterface
 
     /**
      * @param int $company_id
-     * @return Builder
-     */
-    public function ofCompany(int $company_id)
-    {
-        return $this->model->where('company_id', $company_id)->orderBy('created_at', 'asc');
-    }
-
-    /**
-     * @param int $company_id
      * @param int $id
      * @return Model
      *
@@ -255,5 +245,14 @@ abstract class Repository implements RepositoryInterface
         return $this->ofCompany($company_id)
             ->where('id', $id)
             ->firstOrFail();
+    }
+
+    /**
+     * @param int $company_id
+     * @return Builder
+     */
+    public function ofCompany(int $company_id)
+    {
+        return $this->model->where('company_id', $company_id)->orderBy('created_at', 'asc');
     }
 }

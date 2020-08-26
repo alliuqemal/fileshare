@@ -73,26 +73,20 @@
 
 
                 <li class="nav-header">Other</li>
-{{--                <li class="nav-item">--}}
-{{--                    <a href="#" class="nav-link">--}}
-{{--                        <i class="nav-icon far fa-calendar-alt"></i>--}}
-{{--                        <p>--}}
-{{--                            Calendar--}}
-{{--                            <span class="badge badge-info right">2</span>--}}
-{{--                        </p>--}}
-{{--                    </a>--}}
-{{--                </li>--}}
-                <li class="nav-item">
-                    <a href="/gallery" class="nav-link">
-                        <i class="nav-icon far fa-image"></i>
-                        <p>
-                            Gallery
-                        </p>
-                    </a>
-                </li>
+                {{--                <li class="nav-item">--}}
+                {{--                    <a href="#" class="nav-link">--}}
+                {{--                        <i class="nav-icon far fa-calendar-alt"></i>--}}
+                {{--                        <p>--}}
+                {{--                            Calendar--}}
+                {{--                            <span class="badge badge-info right">2</span>--}}
+                {{--                        </p>--}}
+                {{--                    </a>--}}
+                {{--                </li>--}}
+
                 @auth
                     <li class="nav-item">
-                        <a href="#" class="nav-link" href="javascript:void(0);" class="btn btn-default btn-flat float-right"
+                        <a href="#" class="nav-link" href="javascript:void(0);"
+                           class="btn btn-default btn-flat float-right"
                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                             <i class="nav-icon fa fa-sign-out-alt"></i>
                             <p>
@@ -101,6 +95,7 @@
                         </a>
                     </li>
                 @endauth
+
             </ul>
         </nav>
     </div>

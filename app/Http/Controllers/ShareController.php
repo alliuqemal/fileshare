@@ -3,10 +3,6 @@
 namespace App\Http\Controllers;
 
 
-use App\Models\User\User;
-use App\Repository\Contracts\ShareRepositoryInterface;
-use Illuminate\Http\Client\Request;
-
 class ShareController extends Controller
 {
 //    private $shareRepository;
@@ -19,9 +15,9 @@ class ShareController extends Controller
     public function store()
     {
         dd(request());
-       // $userId = User::query()->where('email',$request->);
+        // $userId = User::query()->where('email',$request->);
 //        $this->shareRepository->create([
-//            'fileId' => $request->id,
+//            'fileId' => $request->id,0
 //            'userId' => 0
 //        ]);
     }

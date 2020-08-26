@@ -8,6 +8,15 @@ use ReflectionClass;
 abstract class Enum
 {
     /**
+     * @param string $glue
+     * @return string
+     */
+    public static function toString(string $glue = ','): string
+    {
+        return implode($glue, self::toArray());
+    }
+
+    /**
      * @param bool $associative
      * @return array
      */
@@ -25,17 +34,8 @@ abstract class Enum
             }
 
             return array_values($constants);
-        } catch (Exception $e){
+        } catch (Exception $e) {
             return [];
         }
-    }
-
-    /**
-     * @param string $glue
-     * @return string
-     */
-    public static function toString(string $glue = ','): string
-    {
-        return implode($glue, self::toArray());
     }
 }

@@ -6,8 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Share extends Model
 {
-    protected $fillable=[
-      'fileId',
-      'userId'
+    protected $fillable = [
+        'fileId',
+        'userId'
     ];
 }

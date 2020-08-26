@@ -20,7 +20,7 @@ class UsersDataTableEditor extends DataTablesEditor
     {
         return [
             'email' => 'required|email|unique:' . $this->resolveModel()->getTable(),
-            'name'  => 'required',
+            'name' => 'required',
         ];
     }
 
@@ -34,7 +34,7 @@ class UsersDataTableEditor extends DataTablesEditor
     {
         return [
             'email' => 'sometimes|required|email|' . Rule::unique($model->getTable())->ignore($model->getKey()),
-            'name'  => 'sometimes|required',
+            'name' => 'sometimes|required',
         ];
     }
 

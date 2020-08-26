@@ -30,8 +30,7 @@ class FileService
             $file = self::$fileRepository->findOrFail($fileid);
 
             return Storage::disk('private')->download($file->path, $file->name);
-        }
-        catch (Exception $e){
+        } catch (Exception $e) {
             return null;
         }
     }

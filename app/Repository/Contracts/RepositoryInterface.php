@@ -42,10 +42,10 @@ interface RepositoryInterface
     /**
      * Paginate the given query.
      *
-     * @param  int|null  $perPage
-     * @param  array  $columns
-     * @param  string  $pageName
-     * @param  int|null  $page
+     * @param int|null $perPage
+     * @param array $columns
+     * @param string $pageName
+     * @param int|null $page
      * @return LengthAwarePaginator
      *
      * @throws InvalidArgumentException
@@ -101,8 +101,8 @@ interface RepositoryInterface
     /**
      * Find a model by its primary key.
      *
-     * @param  mixed  $id
-     * @param  array  $columns
+     * @param mixed $id
+     * @param array $columns
      * @return Model|Collection|static[]|static|null
      */
     public function find($id, array $columns = ['*']);

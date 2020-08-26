@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Mail\FileShared;
 use App\Repository\Contracts\FileRepositoryInterface;
 use App\Services\FileService;
 use Exception;
@@ -36,13 +35,13 @@ class FilesController extends Controller
      * @throws Exception
      *
      */
-    public function index(){
+    public function index()
+    {
 
-        if(request()->ajax() || request()->wantsJson())
-        {
-            $files = $this -> fileRepository -> whereUserId(auth()->id());
+        if (request()->ajax() || request()->wantsJson()) {
+            $files = $this->fileRepository->whereUserId(auth()->id());
             return DataTables::eloquent($files)
-                ->addColumn('actions','files.actions')
+                ->addColumn('actions', 'files.actions')
                 ->rawColumns(['actions'])
                 ->make(true);
         }
@@ -70,7 +69,7 @@ class FilesController extends Controller
 
     public function showTrash()
     {
-        $files = $this->fileRepository-> whereDeleted(auth()->id())->get();
+        $files = $this->fileRepository->whereDeleted(auth()->id())->get();
         return view('files.trash', compact('files'));
     }
 

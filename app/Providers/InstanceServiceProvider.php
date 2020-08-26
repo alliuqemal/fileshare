@@ -4,8 +4,8 @@ namespace App\Providers;
 
 use App\Repository\Classes\FileRepository;
 use App\Services\FileService;
-use Illuminate\Support\ServiceProvider;
 use Exception;
+use Illuminate\Support\ServiceProvider;
 
 class InstanceServiceProvider extends ServiceProvider
 {

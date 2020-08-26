@@ -8,11 +8,6 @@ use Illuminate\Database\Eloquent\Builder;
 
 class FileRepository extends Repository implements FileRepositoryInterface
 {
-    protected function model()
-    {
-        return File::class;
-    }
-
     /**
      * @param int $userId
      * @return Builder
@@ -25,6 +20,11 @@ class FileRepository extends Repository implements FileRepositoryInterface
     public function whereDeleted(int $userId)
     {
 
-        return File::onlyTrashed() -> where('userID',$userId);
+        return File::onlyTrashed()->where('userID', $userId);
+    }
+
+    protected function model()
+    {
+        return File::class;
     }
 }

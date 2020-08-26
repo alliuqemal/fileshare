@@ -58,8 +58,8 @@
 
         });
 
-        function size(size){
-            return parseInt(size)/1024/1024;
+        function size(size) {
+            return parseInt(size) / 1024 / 1024;
         }
 
     </script>
