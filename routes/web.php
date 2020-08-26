@@ -48,6 +48,9 @@ Route::middleware('auth')
             ->uses('FilesController@softDelete')
             ->name('files.softDelete');
 
+        Route::get('/files/')
+            ->uses('FilesController@index')
+            ->name('files.index');
 
         Route::get('/files/all')
             ->uses('FilesController@showAll')
@@ -64,6 +67,10 @@ Route::middleware('auth')
         Route::get('/files/download/{id}')
             ->uses('FilesController@download')
             ->name('files.download');
+
+        Route::post('/shares/')
+            ->uses('ShareController@store')
+            ->name('shares.store');
 
 
         Route::prefix('admin')

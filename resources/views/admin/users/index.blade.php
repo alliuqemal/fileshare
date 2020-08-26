@@ -60,7 +60,7 @@
     <div class="card">
         <div class="card-header border-0">
             <div class="card-tools">
-                <a href="javascript:location.reload(); toastr.info('Refreshed'); " class="btn btn-tool btn-sm">
+                <a href="javascript:location.reload();" class="btn btn-tool btn-sm">
                     <i class="fas fa-sync"></i>
                 </a>
 
@@ -78,6 +78,4 @@
                 </tr>
                 </thead>
                 <tbody>
-
 @endsection
-

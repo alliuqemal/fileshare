@@ -21,4 +21,10 @@ class FileRepository extends Repository implements FileRepositoryInterface
     {
         return $this->model->where('userID', $userId);
     }
+
+    public function whereDeleted(int $userId)
+    {
+
+        return File::onlyTrashed() -> where('userID',$userId);
+    }
 }

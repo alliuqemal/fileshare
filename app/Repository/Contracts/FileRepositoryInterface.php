@@ -11,4 +11,6 @@ interface FileRepositoryInterface extends RepositoryInterface
      * @return Builder
      */
     public function whereUserId(int $userId);
+    public function whereDeleted(int $userId);
+
 }

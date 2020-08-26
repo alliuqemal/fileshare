@@ -5,8 +5,14 @@ namespace App\Http\Controllers;
 use App\Mail\FileShared;
 use App\Repository\Contracts\FileRepositoryInterface;
 use App\Services\FileService;
+use Exception;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\View\View;
+use Yajra\DataTables\Facades\DataTables;
 
 class FilesController extends Controller
 {
@@ -23,6 +29,24 @@ class FilesController extends Controller
     public function upload()
     {
         return view('files.upload');
+    }
+
+    /**
+     * @return Application|Factory|JsonResponse|View
+     * @throws Exception
+     *
+     */
+    public function index(){
+
+        if(request()->ajax() || request()->wantsJson())
+        {
+            $files = $this -> fileRepository -> whereUserId(auth()->id());
+            return DataTables::eloquent($files)
+                ->addColumn('actions','files.actions')
+                ->rawColumns(['actions'])
+                ->make(true);
+        }
+        return view('files.index');
     }
 
     public function Gallery()
@@ -46,9 +70,8 @@ class FilesController extends Controller
 
     public function showTrash()
     {
-        $files = $this -> fileRepository
-
-        return view('files.trash', compact('user'));
+        $files = $this->fileRepository-> whereDeleted(auth()->id())->get();
+        return view('files.trash', compact('files'));
     }
 
     public function download(int $id)
@@ -58,12 +81,12 @@ class FilesController extends Controller
 
     public function softDelete(int $id)
     {
-        $file = $this -> fileRepository->findOrFail($id);
+        $file = $this->fileRepository->findOrFail($id);
         try {
             $file->delete();
             $file->save();
             return back();
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
         }
 
     }

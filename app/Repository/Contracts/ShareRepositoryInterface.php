@@ -1,10 +1,10 @@
 <?php
 
 
-namespace App\Repository\Classes;
+namespace App\Repository\Contracts;
 
+use Illuminate\Database\Eloquent\Builder;
 
-use App\Repository\Contracts\RepositoryInterface;
 
 interface ShareRepositoryInterface extends RepositoryInterface
 {

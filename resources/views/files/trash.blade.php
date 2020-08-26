@@ -1,4 +1,3 @@
-
 @extends('layouts.application')
 
 @section('title', 'All Files')
@@ -24,19 +23,22 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                    <td>
+                @foreach($files as $file)
+                    <tr>
+                        <td>
+                            {{$file->name}}
+                        </td>
 
-                    </td>
-                    <td></td>
-                    <td>
+                        <td></td>
+                        <td>
 
 
-                    </td>
-                    <td>
+                        </td>
+                        <td>
 
-                    </td>
-                </tr>
+                        </td>
+
+                    </tr>@endforeach
                 </tbody>
             </table>
         </div>
