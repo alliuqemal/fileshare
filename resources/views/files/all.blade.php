@@ -36,7 +36,13 @@
                         {{$file->created_at}}
                     </td>
                     <td>
-{{--                        <a href="{{Storage::get($file)}}"></a>--}}
+                        <form class="d-inline"
+                              action="{{ route('files.download', ['id' => $file-> id]) }}"
+                              method="POST">
+                            @csrf
+                            <button type="submit" class="btn btn-xs btn-info"><i
+                                    class="fas fa-download"></i></button>
+                        </form>
                     </td>
                 </tr>
                 @endforeach

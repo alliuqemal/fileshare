@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\File as FileFacade;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
-class FileController extends Controller
+class FilesController extends Controller
 {
     private $fileRepository;
 
@@ -52,8 +52,14 @@ class FileController extends Controller
         return view('files.trash', compact('user'));
     }
 
+    public function download(int $id){
+        FileService::download($id, auth()->id());
+
+       return back();
+    }
     public function showShared()
     {
+
         $user = auth()->user();
 
         return view('files.shared', compact('user'));

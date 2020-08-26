@@ -33,28 +33,32 @@ Route::middleware('auth')
             ->name('profile.update');
 
         Route::get('/files/upload')
-            ->uses('FileController@upload')
+            ->uses('FilesController@upload')
             ->name('files.upload');
 
         Route::get("/gallery")
-            ->uses("FileController@Gallery")
+            ->uses("FilesController@Gallery")
             ->name("files.gallery");
 
         Route::post('/files/upload')
-            ->uses('FileController@uploadPost')
+            ->uses('FilesController@uploadPost')
             ->name('files.upload.post');
 
         Route::get('/files/all')
-            ->uses('FileController@showAll')
+            ->uses('FilesController@showAll')
             ->name('files.all');
 
         Route::get('/files/shared')
-            ->uses('FileController@showShared')
+            ->uses('FilesController@showShared')
             ->name('files.all');
 
         Route::get('/files/trash')
-            ->uses('FileController@showTrash')
+            ->uses('FilesController@showTrash')
             ->name('files.trash');
+
+        Route::post('/files/download/{id}')
+            ->uses('FilesController@download')
+            ->name('files.download');
 
 
         Route::prefix('admin')

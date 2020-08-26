@@ -10,6 +10,7 @@ use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\File as FileFacade;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
+use mysql_xdevapi\Warning;
 
 class FileService
 {
@@ -25,6 +26,18 @@ class FileService
      * @param int $userId
      * @return Model|File|null
      */
+    public static function download(int $fileid, int $userId)
+    {
+        try {
+            $file = self::$fileRepository->findOrFail($fileid);
+            $path = "private/" . $file->path;
+            $msg = Storage::disk('private')->download($path, $file->name);
+        }
+        catch (Exception $e){
+            dd($e);
+        }
+    }
+
     public static function upload(UploadedFile $file, int $userId)
     {
         try {
@@ -43,7 +56,7 @@ class FileService
             }
 
             return null;
-        } catch (Exception $exception){
+        } catch (Exception $exception) {
             return null;
         }
     }
@@ -84,7 +97,7 @@ class FileService
      * @param string $extension
      * @return string
      */
-    public static  function getFileType(string $extension): string
+    public static function getFileType(string $extension): string
     {
         switch ($extension) {
             case "doc":
