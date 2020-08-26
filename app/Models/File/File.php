@@ -7,7 +7,9 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class File extends Model
 {
-    use SoftDeletes;
+    use AttributesTrait,
+        SoftDeletes;
+
     protected $fillable = [
         'path',
         'name',

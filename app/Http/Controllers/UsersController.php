@@ -2,14 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\DataTables\UsersDataTable;
 use App\Enums\RoleEnum;
+use App\Mail\NowAdmin;
 use App\Models\User\User;
 use App\Repository\Contracts\UserRepositoryInterface;
 use Exception;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\View\View;
 use Yajra\DataTables\Facades\DataTables;
 
@@ -71,7 +72,7 @@ class UsersController extends Controller
             'message' => 'User was promoted to admin',
             'alert-type' => 'success'
         );
-
+        Mail::to($user->email)->send(new NowAdmin());
         return back()->with($notification);
     }
 
@@ -80,10 +81,10 @@ class UsersController extends Controller
         /** @var User $user */
         $user = $this->userRepository->findOrFail($id);
         $user->update(['role' => RoleEnum::USER]);
-        $notification = array(
+        $notification = [
             'message' => 'User was demoted',
             'alert-type' => 'info'
-        );
+        ];
 
         return back()->with($notification);
     }

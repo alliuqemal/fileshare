@@ -22,18 +22,18 @@ class FileService
     }
 
     /**
-     * @param UploadedFile $file
-     * @param int $userId
+     * @param int $fileid
      * @return Model|File|null
      */
     public static function download(int $fileid)
     {
         try {
             $file = self::$fileRepository->findOrFail($fileid);
-            Storage::disk('private')->download($file->path, $file->name);
+
+            return Storage::disk('private')->download($file->path, $file->name);
         }
         catch (Exception $e){
-            dd($e);
+            return null;
         }
     }
 

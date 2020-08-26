@@ -18,7 +18,7 @@
                 <tr>
                     <th>File</th>
                     <th>File Size</th>
-                    <th>Upload Date</th>
+                    <th>Uploaded</th>
                     <th>More</th>
                 </tr>
                 </thead>
@@ -30,19 +30,15 @@
                         {{$file->name}}
                     </td>
                     <td>
-                        {{$file->size}}
+                        {{$file->size_in_mb}}
                     </td>
                     <td>
-                        {{$file->created_at}}
+                        {{optional($file->created_at)->diffForHumans()}}
                     </td>
                     <td>
-                        <form class="d-inline"
-                              action="{{ route('files.download', ['id' => $file-> id]) }}"
-                              method="POST">
-                            @csrf
-                            <button type="submit" class="btn btn-xs btn-info"><i
-                                    class="fas fa-download"></i></button>
-                        </form>
+                        <a href="{{ route('files.download', ['id' => $file-> id]) }}" class="btn btn-xs btn-info">
+                            <i class="fas fa-download"></i>
+                        </a>
                     </td>
                 </tr>
                 @endforeach

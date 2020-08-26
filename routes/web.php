@@ -56,7 +56,7 @@ Route::middleware('auth')
             ->uses('FilesController@showTrash')
             ->name('files.trash');
 
-        Route::post('/files/download/{id}')
+        Route::get('/files/download/{id}')
             ->uses('FilesController@download')
             ->name('files.download');
 

@@ -7,10 +7,6 @@ use App\Repository\Contracts\FileRepositoryInterface;
 use App\Services\FileService;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use Illuminate\Support\Facades\Mail;
-use Illuminate\Support\Facades\File as FileFacade;
-use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Str;
 
 class FilesController extends Controller
 {
@@ -43,7 +39,7 @@ class FilesController extends Controller
 
     public function showAll()
     {
-        $files = $this->fileRepository->all()->where('userID',auth()->id());
+        $files = $this->fileRepository->whereUserId(auth()->id())->get();
 
         return view('files.all', compact('files'));
     }
@@ -54,12 +50,11 @@ class FilesController extends Controller
         return view('files.trash', compact('user'));
     }
 
-    public function download(int $id){
-        FileService::download($id);
-        Mail::to(auth()->user()->email)->send(new FileShared());
-
-       return back();
+    public function download(int $id)
+    {
+        return FileService::download($id);
     }
+
     public function showShared()
     {
 
