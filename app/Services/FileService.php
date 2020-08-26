@@ -43,7 +43,7 @@ class FileService
             }
 
             return null;
-        } catch (Exception $exception) {
+        } catch (Exception $exception){
             return null;
         }
     }
@@ -84,7 +84,7 @@ class FileService
      * @param string $extension
      * @return string
      */
-    public static function getFileType(string $extension): string
+    public static  function getFileType(string $extension): string
     {
         switch ($extension) {
             case "doc":

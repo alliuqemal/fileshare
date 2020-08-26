@@ -58,7 +58,7 @@ Route::middleware('auth')
 
 
         Route::prefix('admin')
-            ->middleware('role:' . RoleEnum::ADMINISTRATOR)
+            ->middleware('role:'. RoleEnum::ADMINISTRATOR)
             ->as('admin.')
             ->group(function () {
 
@@ -66,9 +66,9 @@ Route::middleware('auth')
                     ->uses('UsersController@index')
                     ->name('users.index');
 
-                Route:: post('/users/promote/{user}')
+                Route:: post ('/users/promote/{user}')
                     ->uses('UsersController@promote')
-                    ->name('users.promote');
+                    ->name ('users.promote');
 
                 Route::post('/users/demote/{user}')
                     ->uses('UsersController@demote')

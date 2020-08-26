@@ -1,7 +1,5 @@
 <?php
 
-use Facade\Ignition\SolutionProviders\MissingPackageSolutionProvider;
-
 return [
 
     /*
@@ -71,7 +69,7 @@ return [
     */
 
     'ignored_solution_providers' => [
-        MissingPackageSolutionProvider::class,
+        \Facade\Ignition\SolutionProviders\MissingPackageSolutionProvider::class,
     ],
 
     /*
