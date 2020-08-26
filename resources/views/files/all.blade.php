@@ -24,21 +24,21 @@
                 </thead>
                 <tbody>
                 @foreach($files as $file)
-                <tr>
-                    <td>
-                        <i class="fa {{ getFileIcon($file->type) }}"></i>
-                        {{$file->name}}
-                    </td>
-                    <td>
-                        {{$file->size}}
-                    </td>
-                    <td>
-                        {{$file->created_at}}
-                    </td>
-                    <td>
-{{--                        <a href="{{Storage::get($file)}}"></a>--}}
-                    </td>
-                </tr>
+                    <tr>
+                        <td>
+                            <i class="fa {{ getFileIcon($file->type) }}"></i>
+                            {{$file->name}}
+                        </td>
+                        <td>
+                            {{$file->size}}
+                        </td>
+                        <td>
+                            {{$file->created_at}}
+                        </td>
+                        <td>
+                            {{--                        <a href="{{Storage::get($file)}}"></a>--}}
+                        </td>
+                    </tr>
                 @endforeach
                 </tbody>
             </table>

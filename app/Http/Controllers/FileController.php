@@ -6,9 +6,6 @@ use App\Repository\Contracts\FileRepositoryInterface;
 use App\Services\FileService;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use Illuminate\Support\Facades\File as FileFacade;
-use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Str;
 
 class FileController extends Controller
 {
@@ -41,7 +38,7 @@ class FileController extends Controller
 
     public function showAll()
     {
-        $files = $this->fileRepository->all()->where('userID',auth()->id());
+        $files = $this->fileRepository->all()->where('userID', auth()->id());
 
         return view('files.all', compact('files'));
     }

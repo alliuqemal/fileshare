@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\DataTables\UsersDataTable;
 use App\Enums\RoleEnum;
 use App\Models\User\User;
 use App\Repository\Contracts\UserRepositoryInterface;
