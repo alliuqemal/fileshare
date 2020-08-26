@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\FileShared;
 use App\Repository\Contracts\FileRepositoryInterface;
 use App\Services\FileService;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\File as FileFacade;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
@@ -53,7 +55,8 @@ class FilesController extends Controller
     }
 
     public function download(int $id){
-        FileService::download($id, auth()->id());
+        FileService::download($id);
+        Mail::to(auth()->user()->email)->send(new FileShared());
 
        return back();
     }
