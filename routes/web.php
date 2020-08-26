@@ -44,6 +44,11 @@ Route::middleware('auth')
             ->uses('FilesController@uploadPost')
             ->name('files.upload.post');
 
+        Route::post('/files/trash/{id}')
+            ->uses('FilesController@softDelete')
+            ->name('files.softDelete');
+
+
         Route::get('/files/all')
             ->uses('FilesController@showAll')
             ->name('files.all');

@@ -46,7 +46,8 @@ class FilesController extends Controller
 
     public function showTrash()
     {
-        $user = auth()->user();
+        $files = $this -> fileRepository
+
         return view('files.trash', compact('user'));
     }
 
@@ -55,9 +56,20 @@ class FilesController extends Controller
         return FileService::download($id);
     }
 
+    public function softDelete(int $id)
+    {
+        $file = $this -> fileRepository->findOrFail($id);
+        try {
+            $file->delete();
+            $file->save();
+            return back();
+        } catch (\Exception $e) {
+        }
+
+    }
+
     public function showShared()
     {
-
         $user = auth()->user();
 
         return view('files.shared', compact('user'));

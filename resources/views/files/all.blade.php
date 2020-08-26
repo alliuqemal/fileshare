@@ -24,23 +24,31 @@
                 </thead>
                 <tbody>
                 @foreach($files as $file)
-                <tr>
-                    <td>
-                        <i class="fa {{ getFileIcon($file->type) }}"></i>
-                        {{$file->name}}
-                    </td>
-                    <td>
-                        {{$file->size_in_mb}}
-                    </td>
-                    <td>
-                        {{optional($file->created_at)->diffForHumans()}}
-                    </td>
-                    <td>
-                        <a href="{{ route('files.download', ['id' => $file-> id]) }}" class="btn btn-xs btn-info">
-                            <i class="fas fa-download"></i>
-                        </a>
-                    </td>
-                </tr>
+                    <tr>
+                        <td>
+                            <i class="fa {{ getFileIcon($file->type) }}"></i>
+                            {{$file->name}}
+                        </td>
+                        <td>
+                            {{$file->size_in_mb}}
+                        </td>
+                        <td>
+                            {{optional($file->created_at)->diffForHumans()}}
+                        </td>
+                        <td>
+                            <a href="{{ route('files.download', ['id' => $file-> id]) }}"
+                               class="btn btn-xs btn-success">
+                                <i class="fas fa-download"></i>
+                            </a>
+                            <form class="d-inline"
+                                  action="{{ route('files.softDelete', ['id' => $file-> id]) }}"
+                                  method="POST">
+                                @csrf
+                                <button type="submit" class="btn btn-xs btn-danger"><i
+                                        class="fas fa-trash"></i></button>
+                            </form>
+                        </td>
+                    </tr>
                 @endforeach
                 </tbody>
             </table>
