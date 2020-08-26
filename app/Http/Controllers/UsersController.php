@@ -32,7 +32,7 @@ class UsersController extends Controller
     public function index()
     {
         if (request()->ajax() || request()->wantsJson()) {
-            $users = $this->userRepository->query();
+            $users = $this->userRepository->query()->orderBy('role');
 
             return DataTables::eloquent($users)
                 ->addColumn('actions', 'admin.users.actions')
