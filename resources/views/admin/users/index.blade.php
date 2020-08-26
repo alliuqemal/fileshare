@@ -32,13 +32,35 @@
 
         });
     </script>
+
+    <script>
+        @if(Session::has('message'))
+        var type="{{Session::get('alert-type','info')}}"
+
+        switch(type){
+            case 'info':
+                toastr.info("{{ Session::get('message') }}");
+                break;
+            case 'success':
+                toastr.success("{{ Session::get('message') }}");
+                break;
+            case 'warning':
+                toastr.warning("{{ Session::get('message') }}");
+                break;
+            case 'error':
+                toastr.error("{{ Session::get('message') }}");
+                break;
+        }
+        @endif
+
+    </script>
 @endsection
 
 @section('content')
     <div class="card">
         <div class="card-header border-0">
             <div class="card-tools">
-                <a href="javascript:location.reload()" class="btn btn-tool btn-sm">
+                <a href="javascript:location.reload(); toastr.info('Refreshed'); " class="btn btn-tool btn-sm">
                     <i class="fas fa-sync"></i>
                 </a>
 

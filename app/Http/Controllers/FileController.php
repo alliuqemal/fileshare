@@ -41,7 +41,7 @@ class FileController extends Controller
 
     public function showAll()
     {
-        $files = $this->fileRepository->all();
+        $files = $this->fileRepository->all()->where('userID',auth()->id());
 
         return view('files.all', compact('files'));
     }

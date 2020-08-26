@@ -30,7 +30,6 @@ class FileService
         try {
             $fileName = Str::slug(pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME)) . '-' . time() . '.' . $file->getClientOriginalExtension();
             $path = $userId . "/" . $fileName;
-
             $stored = Storage::disk('private')->put($path, FileFacade::get($file));
 
             if ($stored) {

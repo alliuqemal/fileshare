@@ -47,10 +47,10 @@
 </script>
 <script src="{{ mix('js/app.js') }}"></script>
 <script src="{{ asset('vendor/datatables/buttons.server-side.js') }}"></script>
+{{--@include('partials.footer')--}}
 
 @yield('scripts')
 </body>
 
-@include('partials.footer')
 </html>
 

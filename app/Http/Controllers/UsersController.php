@@ -53,8 +53,13 @@ class UsersController extends Controller
         $user = $this->userRepository->findOrFail($id);
 
         $user->delete();
+        $notification = array(
+            'message' => 'User deleted',
+            'alert-type' => 'warning'
+        );
 
-        return redirect()->back();
+        return back()->with($notification);
+
     }
 
     public function promote(int $id)
@@ -62,8 +67,12 @@ class UsersController extends Controller
         /** @var User $user */
         $user = $this->userRepository->findOrFail($id);
         $user->update(['role' => RoleEnum::ADMINISTRATOR]);
+        $notification = array(
+            'message' => 'User was promoted to admin',
+            'alert-type' => 'success'
+        );
 
-        return redirect()->back();
+        return back()->with($notification);
     }
 
     public function demote(int $id)
@@ -71,7 +80,11 @@ class UsersController extends Controller
         /** @var User $user */
         $user = $this->userRepository->findOrFail($id);
         $user->update(['role' => RoleEnum::USER]);
+        $notification = array(
+            'message' => 'User was demoted',
+            'alert-type' => 'info'
+        );
 
-        return redirect()->back();
+        return back()->with($notification);
     }
 }
