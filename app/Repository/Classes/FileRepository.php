@@ -34,7 +34,7 @@ class FileRepository extends Repository implements FileRepositoryInterface
     public function sharedWith(int $userId)
     {
         return $this->model->whereHas('shares', function ($query) use ($userId) {
-            $query->where('userID', $userId);
+            $query->where('user_id', $userId);
         });
     }
 }

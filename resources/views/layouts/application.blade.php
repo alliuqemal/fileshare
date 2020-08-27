@@ -31,7 +31,7 @@
             @yield('content')
         </section>
     </div>
-
+    @include('partials.footer')
     @include('partials.logoutForm')
 </div>
 <script src="{{ asset('plugins/jquery/jquery.min.js') }}"></script>
@@ -45,11 +45,29 @@
         }
     });
 </script>
-<script src="{{ mix('js/app.js') }}"></script>
 <script src="{{ asset('vendor/datatables/buttons.server-side.js') }}"></script>
 @yield('scripts')
-{{--@include('partials.footer')--}}
+<script>
+    @if(Session::has('message'))
+    var type="{{Session::get('alert-type','info')}}"
 
+    switch(type){
+        case 'info':
+            toastr.info("{{ Session::get('message') }}");
+            break;
+        case 'success':
+            toastr.success("{{ Session::get('message') }}");
+            break;
+        case 'warning':
+            toastr.warning("{{ Session::get('message') }}");
+            break;
+        case 'error':
+            toastr.error("{{ Session::get('message') }}");
+            break;
+    }
+    @endif
+
+</script>
 </body>
 
 </html>

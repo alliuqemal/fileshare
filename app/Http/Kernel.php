@@ -65,5 +65,6 @@ class Kernel extends HttpKernel
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
 
         'role' => \App\Http\Middleware\HasRole::class,
+        'size' => App\Http\Middleware\CheckFileSize::class,
     ];
 }

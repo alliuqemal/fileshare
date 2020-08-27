@@ -35,20 +35,10 @@
                             {{optional($file->created_at)->diffForHumans()}}
                         </td>
                         <td>
-                            <form class="d-inline"
-                                  action="{{ route('files.restore', ['id' => $file-> id]) }}"
-                                  method="POST">
-                                @csrf
-                                <button type="submit" class="btn btn-xs btn-info"><i
-                                        class="fas fa-trash-restore"></i></button>
-                            </form>
-                            <form class="d-inline"
-                                  action="{{ route('files.permDelete', ['id' => $file-> id]) }}"
-                                  method="POST">
-                                @csrf
-                                <button type="submit" class="btn btn-xs btn-danger"><i
-                                        class="fas fa-trash-alt"></i></button>
-                            </form>
+                            <a href="{{ route('files.download', ['id' => $file-> id]) }}"
+                               class="btn btn-xs btn-success">
+                                <i class="fas fa-download"></i>
+                            </a>
                         </td>
                     </tr>
                 @endforeach

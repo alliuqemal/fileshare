@@ -24,6 +24,7 @@ class FilesController extends Controller
     public function __construct(FileRepositoryInterface $fileRepository)
     {
         $this->fileRepository = $fileRepository;
+        $this->authorizeResource(File::class, 'file');
     }
 
     /**
@@ -111,16 +112,15 @@ class FilesController extends Controller
         return back()->with($notification);
     }
 
+
     public function share(int $id)
     {
         $file = $this->fileRepository->findOrFail($id);
-        return view('files.share',compact('file'));
-    }
 
-    public function showShared()
-    {
-        $user = auth()->user();
+        if (auth()->user()->can('share', $file)) {
+            return view('files.share', compact('file'));
+        }
+        else abort(403);
 
-        return view('files.shared', compact('user'));
     }
 }
