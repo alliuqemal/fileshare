@@ -5,6 +5,9 @@ namespace App\Models\User;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
+/**
+ * @property mixed id
+ */
 class User extends Authenticatable
 {
     use AttributesTrait;

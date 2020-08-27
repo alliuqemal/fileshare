@@ -33,6 +33,7 @@ Route::middleware('auth')
             ->name('profile.update');
 
         Route::get('/files/upload')
+            ->middleware('storageused')
             ->uses('FilesController@upload')
             ->name('files.upload');
 

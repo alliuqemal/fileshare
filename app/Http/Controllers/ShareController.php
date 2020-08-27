@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ShareStoreRequest;
 use App\Models\File\File;
 use App\Models\User\User;
 use App\Repository\Contracts\FileRepositoryInterface;
 use App\Repository\Contracts\ShareRepositoryInterface;
 use App\Repository\Contracts\UserRepositoryInterface;
+use Exception;
 
 class ShareController extends Controller
 {
@@ -29,22 +31,27 @@ class ShareController extends Controller
         $this->fileRepository = $fileRepository;
     }
 
-    public function store($id)
-    {
-        $user = User::query()->where('email', request()->input('email'))->firstOrFail();
-        $file = File::query()->findOrFail($id);
-
-        $this->shareRepository->create([
-            'user_id' => $user->id,
-            'file_id' => $file->id,
-        ]);
-        return back();
-    }
-
     public function index()
     {
         $files = $this->fileRepository->sharedWith(auth()->id())->paginate();
 
         return view('shares.index', compact('files'));
+    }
+
+    public function store(ShareStoreRequest $request, $id)
+    {
+        try {
+            $user = User::query()->where('email', $request->input('email'))->firstOrFail();
+            $file = File::query()->findOrFail($id);
+
+            $this->shareRepository->create([
+                'user_id' => $user->id,
+                'file_id' => $file->id,
+            ]);
+            return back()->with(['message' => "Successfully sent", "alert-type" => 'success']);
+        } catch (Exception $e) {
+            return back()->with(['message' => "Error", "alert-type" => 'error']);
+
+        }
     }
 }

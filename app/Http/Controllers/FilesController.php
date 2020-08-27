@@ -116,11 +116,7 @@ class FilesController extends Controller
     public function share(int $id)
     {
         $file = $this->fileRepository->findOrFail($id);
-
-        if (auth()->user()->can('share', $file)) {
-            return view('files.share', compact('file'));
-        }
-        else abort(403);
-
+        $this->authorize('share', $file);
+        return view('files.share', compact('file'));
     }
 }

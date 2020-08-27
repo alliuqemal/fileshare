@@ -34,4 +34,8 @@ class File extends Model
      * @var mixed
      */
     private $user_id;
+    /**
+     * @var mixed
+     */
+    private $userID;
 }
