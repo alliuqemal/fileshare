@@ -17,4 +17,8 @@ class File extends Model
         'type',
         'userID'
     ];
+
+    public function shares(){
+        $this->hasMany('App/Models/Share/Share');
+    }
 }

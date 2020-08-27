@@ -57,7 +57,6 @@ Route::middleware('auth')
             ->name('files.upload.post');
 
 
-
         Route::get('/files/')
             ->uses('FilesController@index')
             ->name('files.index');
@@ -78,13 +77,13 @@ Route::middleware('auth')
             ->uses('FilesController@download')
             ->name('files.download');
 
-        Route::post('/shares/')
-            ->uses('ShareController@store')
-            ->name('shares.store');
+//        Route::post('/shares/')
+//            ->uses('ShareController@store')
+//            ->name('shares.store');
 
 
         Route::prefix('admin')
-            ->middleware('role:'. RoleEnum::ADMINISTRATOR)
+            ->middleware('role:' . RoleEnum::ADMINISTRATOR)
             ->as('admin.')
             ->group(function () {
 
@@ -92,9 +91,9 @@ Route::middleware('auth')
                     ->uses('UsersController@index')
                     ->name('users.index');
 
-                Route:: post ('/users/promote/{user}')
+                Route:: post('/users/promote/{user}')
                     ->uses('UsersController@promote')
-                    ->name ('users.promote');
+                    ->name('users.promote');
 
                 Route::post('/users/demote/{user}')
                     ->uses('UsersController@demote')

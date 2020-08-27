@@ -49,11 +49,6 @@ class FilesController extends Controller
         return view('files.index');
     }
 
-    public function Gallery()
-    {
-        return view('files.gallery');
-    }
-
     public function uploadPost(Request $request)
     {
         FileService::upload($request->file('file'), auth()->id());
@@ -77,6 +72,7 @@ class FilesController extends Controller
     public function download(int $id)
     {
         return FileService::download($id);
+
     }
 
     public function softDelete(int $id)
@@ -107,7 +103,11 @@ class FilesController extends Controller
     public function permDelete(int $id)
     {
         FileService::permDelete($id);
-        return back();
+        $notification = array(
+            'message' => 'File Permanently Deleted',
+            'alert-type' => 'error'
+        );
+        return back()->with($notification);
     }
 
     public function showShared()

@@ -2,6 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\File\File;
+use App\Repository\Contracts\FileRepositoryInterface;
+use App\Services\FileService;
+use Exception;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use Illuminate\View\View;
+use Yajra\DataTables\Facades\DataTables;
 
 use App\Share;
 
@@ -27,8 +38,7 @@ class ShareController extends Controller
 
     public function index()
     {
-        $shared = Share::all()->where('userId',auth()->id());
-
-        return view('shares',compact($shared));
+        //
+        //return view('shares.index',compact('files'));
     }
 }
