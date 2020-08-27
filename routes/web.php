@@ -91,7 +91,6 @@ Route::middleware('auth')
             ->name('shares.store');
 
 
-
         Route::prefix('admin')
             ->middleware('role:' . RoleEnum::ADMINISTRATOR)
             ->as('admin.')

@@ -73,6 +73,8 @@ class FilesController extends Controller
 
     public function download(int $id)
     {
+        $file = $this->fileRepository->findOrFail($id);
+        $this->authorize('access', $file);
         return FileService::download($id);
 
     }
