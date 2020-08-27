@@ -34,7 +34,7 @@
                         </p>
                     </li>
                     <li class="user-footer">
-                        <a href="/profile/edit" class="btn btn-default btn-flat">Edit Profile</a>
+{{--                        <a href="/profile/edit" class="btn btn-default btn-flat">Edit Profile</a>--}}
                         <a href="javascript:void(0);" class="btn btn-default btn-flat float-right"
                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                             Sign out
