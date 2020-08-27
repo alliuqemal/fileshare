@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class File extends Model
 {
     use AttributesTrait,
+        RelationsTrait,
         SoftDeletes;
 
     protected $fillable = [
@@ -18,7 +19,7 @@ class File extends Model
         'userID'
     ];
 
-    public function shares(){
-        $this->hasMany('App/Models/Share/Share');
-    }
+    protected $appends = [
+        'size_in_mb',
+    ];
 }

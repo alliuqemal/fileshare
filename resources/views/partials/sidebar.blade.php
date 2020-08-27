@@ -29,7 +29,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="/files/shared"
+                            <a href="/shares"
                                class="nav-link {{ Request::path() ==='files/shared' ? 'active' : ''}} ">
                                 <i class="fa fa-folder-open nav-icon  "></i>
                                 <p>Shared with me</p>

@@ -8,6 +8,11 @@ use Illuminate\Database\Eloquent\Builder;
 
 class FileRepository extends Repository implements FileRepositoryInterface
 {
+    protected function model()
+    {
+        return File::class;
+    }
+
     /**
      * @param int $userId
      * @return Builder
@@ -17,14 +22,19 @@ class FileRepository extends Repository implements FileRepositoryInterface
         return $this->model->where('userID', $userId);
     }
 
+    /**
+     * @param int $userId
+     * @return File|Builder
+     */
     public function whereDeleted(int $userId)
     {
-
-        return File::onlyTrashed()->where('userID', $userId);
+        return $this->model->onlyTrashed()->where('userID', $userId);
     }
 
-    protected function model()
+    public function sharedWith(int $userId)
     {
-        return File::class;
+        return $this->model->whereHas('shares', function ($query) use ($userId) {
+            $query->where('userID', $userId);
+        });
     }
 }

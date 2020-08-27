@@ -48,14 +48,9 @@ Route::middleware('auth')
             ->uses('FilesController@permDelete')
             ->name('files.permDelete');
 
-        Route::get("/gallery")
-            ->uses("FilesController@Gallery")
-            ->name("files.gallery");
-
         Route::post('/files/upload')
             ->uses('FilesController@uploadPost')
             ->name('files.upload.post');
-
 
         Route::get('/files/')
             ->uses('FilesController@index')
@@ -77,10 +72,17 @@ Route::middleware('auth')
             ->uses('FilesController@download')
             ->name('files.download');
 
-//        Route::post('/shares/')
-//            ->uses('ShareController@store')
-//            ->name('shares.store');
+        Route::post('/shares/')
+            ->uses('ShareController@store')
+            ->name('shares.store');
 
+        Route::get('/files/share/{id}')
+            ->uses('FilesController@share')
+            ->name('files.share');
+
+        Route::post('/files/share/{id}')
+            ->uses('ShareController@store')
+            ->name('shares.store');
 
         Route::prefix('admin')
             ->middleware('role:' . RoleEnum::ADMINISTRATOR)

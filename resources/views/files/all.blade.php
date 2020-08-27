@@ -47,6 +47,13 @@
                                 <button type="submit" class="btn btn-xs btn-danger"><i
                                         class="fas fa-trash"></i></button>
                             </form>
+                            <form class="d-inline"
+                                  action="{{route('files.share',['id' => $file->id ])}}"
+                                  method="POST">
+                                @csrf
+                                <button type="submit" class="btn btn-xs btn-info"><i
+                                        class="fas fa-share"></i></button>
+                            </form>
                         </td>
                     </tr>
                 @endforeach

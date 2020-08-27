@@ -3,42 +3,48 @@
 namespace App\Http\Controllers;
 
 use App\Models\File\File;
+use App\Models\User\User;
 use App\Repository\Contracts\FileRepositoryInterface;
-use App\Services\FileService;
-use Exception;
-use Illuminate\Contracts\Foundation\Application;
-use Illuminate\Contracts\View\Factory;
-use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Request;
-use Illuminate\Http\Response;
-use Illuminate\View\View;
-use Yajra\DataTables\Facades\DataTables;
-
-use App\Share;
+use App\Repository\Contracts\ShareRepositoryInterface;
+use App\Repository\Contracts\UserRepositoryInterface;
 
 class ShareController extends Controller
 {
-//    private $shareRepository;
-//
-//    public function __construct(ShareRepositoryInterface $shareRepository)
-//    {
-//        $this->shareRepository = $shareRepository;
-//    }
+    /**
+     * @var ShareRepositoryInterface
+     */
+    private $shareRepository;
+    /**
+     * @var FileRepositoryInterface
+     */
+    private $fileRepository;
+    /**
+     * @var UserRepositoryInterface
+     */
+    private $userRepository;
 
-
-    public function store()
+    public function __construct(ShareRepositoryInterface $shareRepository, FileRepositoryInterface $fileRepository)
     {
-        dd(request());
-        // $userId = User::query()->where('email',$request->);
-//        $this->shareRepository->create([
-//            'fileId' => $request->id,0
-//            'userId' => 0
-//        ]);
+        $this->shareRepository = $shareRepository;
+        $this->fileRepository = $fileRepository;
+    }
+
+    public function store($id)
+    {
+        $user = User::query()->where('email', request()->input('email'))->firstOrFail();
+        $file = File::query()->findOrFail($id);
+
+        $this->shareRepository->create([
+            'user_id' => $user->id,
+            'file_id' => $file->id,
+        ]);
+        return back();
     }
 
     public function index()
     {
-        //
-        //return view('shares.index',compact('files'));
+        $files = $this->fileRepository->sharedWith(auth()->id())->paginate();
+
+        return view('shares.index', compact('files'));
     }
 }

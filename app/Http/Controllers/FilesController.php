@@ -26,11 +26,6 @@ class FilesController extends Controller
         $this->fileRepository = $fileRepository;
     }
 
-    public function upload()
-    {
-        return view('files.upload');
-    }
-
     /**
      * @return Application|Factory|JsonResponse|View
      * @throws Exception
@@ -38,15 +33,21 @@ class FilesController extends Controller
      */
     public function index()
     {
-
         if (request()->ajax() || request()->wantsJson()) {
             $files = $this->fileRepository->whereUserId(auth()->id());
+
             return DataTables::eloquent($files)
                 ->addColumn('actions', 'files.actions')
                 ->rawColumns(['actions'])
                 ->make(true);
         }
+
         return view('files.index');
+    }
+
+    public function upload()
+    {
+        return view('files.upload');
     }
 
     public function uploadPost(Request $request)
@@ -108,6 +109,12 @@ class FilesController extends Controller
             'alert-type' => 'error'
         );
         return back()->with($notification);
+    }
+
+    public function share(int $id)
+    {
+        $file = $this->fileRepository->findOrFail($id);
+        return view('files.share',compact('file'));
     }
 
     public function showShared()
