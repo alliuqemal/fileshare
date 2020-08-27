@@ -3,12 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ShareStoreRequest;
+use App\Mail\SharedFile;
 use App\Models\File\File;
 use App\Models\User\User;
 use App\Repository\Contracts\FileRepositoryInterface;
 use App\Repository\Contracts\ShareRepositoryInterface;
-use App\Repository\Contracts\UserRepositoryInterface;
 use Exception;
+use Illuminate\Support\Facades\Mail;
 
 class ShareController extends Controller
 {
@@ -20,10 +21,6 @@ class ShareController extends Controller
      * @var FileRepositoryInterface
      */
     private $fileRepository;
-    /**
-     * @var UserRepositoryInterface
-     */
-    private $userRepository;
 
     public function __construct(ShareRepositoryInterface $shareRepository, FileRepositoryInterface $fileRepository)
     {
@@ -48,10 +45,10 @@ class ShareController extends Controller
                 'user_id' => $user->id,
                 'file_id' => $file->id,
             ]);
+            Mail::to($user->email)->send(new SharedFile($file));
             return back()->with(['message' => "Successfully sent", "alert-type" => 'success']);
         } catch (Exception $e) {
             return back()->with(['message' => "Error", "alert-type" => 'error']);
-
         }
     }
 }
