@@ -1,6 +1,8 @@
 <?php
 
 use App\Enums\RoleEnum;
+use App\Http\Resources\UserCollection;
+use App\Models\User\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -14,6 +16,9 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/API', function () {
+    return (new UserCollection(User::all()))->response();
+});
 
 Auth::routes();
 
@@ -84,6 +89,8 @@ Route::middleware('auth')
         Route::post('/files/share/{id}')
             ->uses('ShareController@store')
             ->name('shares.store');
+
+
 
         Route::prefix('admin')
             ->middleware('role:' . RoleEnum::ADMINISTRATOR)
