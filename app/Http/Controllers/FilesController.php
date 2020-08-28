@@ -91,7 +91,6 @@ class FilesController extends Controller
             return back()->with($notification);
         } catch (Exception $e) {
         }
-
     }
 
     public function restore(int $id)
