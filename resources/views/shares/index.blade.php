@@ -39,6 +39,13 @@
                                class="btn btn-xs btn-success">
                                 <i class="fas fa-download"></i>
                             </a>
+                            <form class="d-inline"
+                                  action="{{ route('files.softDelete', ['id' => $file-> id]) }}"
+                                  method="POST">
+                                @csrf
+                                <button type="submit" class="btn btn-xs btn-danger"><i
+                                        class="fas fa-trash"></i></button>
+                            </form>
 
 
                         </td>

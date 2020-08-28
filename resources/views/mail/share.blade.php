@@ -1,1 +1,3 @@
-New files shared with you
+Dear {{$user->name}},
+
+Now you have access to {{$file->name}}

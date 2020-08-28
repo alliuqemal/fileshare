@@ -25,7 +25,6 @@ class ShareStoreRequest extends FormRequest
     public function authorize()
     {
         $file = $this->fileRepository->findOrFail($this->route('id'));
-
         return auth()->check() && $this->user()->can('share', $file);
     }
 

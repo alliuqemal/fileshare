@@ -12,12 +12,22 @@ class SharedFile extends Mailable
 {
     use Queueable, SerializesModels;
 
+
+    public $user;
+    public $file;
+
     /**
      * Create a new message instance.
      *
      * @param User $user
      * @param File $file
      */
+    public function __construct(User $user, File $file)
+    {
+        $this->user = $user;
+        $this->file = $file;
+    }
+
 
 
     /**
@@ -27,6 +37,6 @@ class SharedFile extends Mailable
      */
     public function build()
     {
-        return $this->view('mail.share');
+        return $this->view('mail.share')->subject('New File Share');
     }
 }
